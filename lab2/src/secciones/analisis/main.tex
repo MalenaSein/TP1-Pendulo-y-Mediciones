@@ -1,0 +1,88 @@
+\subsection{Análisis de resultados y conclusiones}
+\label{subsec:analisis-de-resultados-y-conclusiones}
+
+\subsubsection{Práctica 1 - Densidad del Cilindro}
+
+\begin{table}[H]
+    \centering
+    \caption{Densidades obtenidas por cada método y valores de referencia}
+    \label{tab:comparacion-densidad}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Método} & $\rho$ ($\frac{g}{cm^3}$) & $\Delta\rho$ ($\frac{g}{cm^3}$) & \textbf{Lím. inf.} & \textbf{Lím. sup.} \\ \hline
+        \csvreader[
+            separator=semicolon,
+            head=true,
+            late after line=\\ \hline
+        ]{secciones/analisis/comparacion-densidad.csv}{}
+        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv}
+    \end{tabular}
+    \begin{tablenotes}
+        \small
+        \centering
+        \item[1] Densidades de referencia obtenidas de \cite{kayelaby1911}, pág. 20.
+    \end{tablenotes}
+\end{table}
+
+\textbf{Compatibilidad entre métodos:} Los métodos son compatibles entre sí.
+Los tres intervalos tienen intersección no nula, todos contienen el intervalo $[8{,}285; 8{,}400]$ $\frac{g}{cm^3}$.
+La regla y la probeta tienen intervalos mucho más amplios debido a la menor precisión de esos instrumentos.
+
+\textbf{Comparación con materiales de referencia:} La densidad obtenida con el calibre (método más preciso) es $\rho = 8{,}342 \pm 0{,}057 \frac{g}{cm^3}$.
+La densidad de referencia más consistente es la de la constante de las pesas de latón $8{,}4 \frac{g}{cm^3}$.
+
+Dado el aspecto del cilindro y los resultados revelados de su densidad, se estima que el mismo es una pesa patrón de laboratorio.
+Si bien nuestra medición más precisa contiene la constante de la densidad utilizada para estos instrumentos ($8{,}4 \frac{g}{cm^3}$), lo hace en el límite superior del intervalo de indeterminación, como se puede apreciar en la Figura \ref{fig:grafico-intervalos}.
+
+Se sabe que estos instrumentos están fabricados bajo especificaciones técnicas muy detalladas y precisas para garantizar las propiedades físicas.
+Uno esperaría que nuestra medición más precisa se encuentre más próxima al centro del intervalo; estimamos que los errores introducidos por la medición no deberían ser lo suficientemente grandes para desplazar tanto el rango.
+
+Nuestra hipótesis es que, como se muestra rudimentariamente en el esquema de la Figura \ref{fig:diagrama-cilindro}, el cilindro no es simplemente conexo, es decir, posee una cavidad interna.
+Esto produce que nuestra fórmula de volumen para un cilindro perfecto resulte perjudicada, provocando que, al calcular la densidad ($\frac{M}{V}$), el denominador esté sobredimensionado y produzca el desplazamiento del rango antes mencionado.
+Un mejor resultado se podría conseguir midiendo la altura y el diámetro de esta cavidad interna, calculando su volumen y restándole este al volumen total del cilindro.
+
+\subsubsection{Práctica 1 -Análisis de Fuentes de Error}
+
+\begin{itemize}
+    \item \textbf{Error en la colocación de la regla:} Al no colocar la regla en contacto directo con el cilindro o al leer en ángulo, se introduce un sesgo sistemático.
+    \item \textbf{Error de tension superficial en la probeta:} El líquido puede formar una curvatura provocada por la tension superficial con las paredes del instrumento, esto dificulta la lectura.
+    \item \textbf{Burbujas de aire en la probeta:} Si quedó aire adherido al cilindro, el volumen desplazado es mayor al real, subestimando la densidad.
+\end{itemize}
+
+\subsubsection{Práctica 1 - Conclusiones}
+
+Se determinó exitosamente la densidad del cilindro por tres métodos independientes, obteniendo resultados compatibles entre sí.
+El calibre proporcionó la medición más precisa, mientras que la regla y la probeta tuvieron errores relativos mayores, evidenciando la importancia de elegir el instrumento adecuado según la precisión requerida.
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Práctica 2 - Pendulo Ideal}
+
+\subsubsection{Resultado de $g$ y Comparación con Valor de Referencia:}
+
+Tras realizar un ajuste con 12 puntos (correspondientes a $\theta$ = 5$^{\circ}$, 9$^{\circ}$ y 15$^{\circ}$), y aplicando el error de la pendiente del ajuste, se obtuvo como resultado $g = 9{,}58 \pm 0{,}26 \frac{m}{s^2}$.
+
+\textbf{Valor de referencia en Buenos Aires:} $g_{\text{ref}} = 9{,}79 \frac{m}{s^2}$.
+
+El valor de referencia se encuentra dentro del intervalo de indeterminación del resultado obtenido ($9{,}32 \frac{m}{s^2}$, $9{,}84 \frac{m}{s^2}$) lo que indica que el resultado es compatible con el valor de referencia.
+
+\subsubsection{Práctica 2 - Análisis de Fuentes de Error}
+
+\paragraph{Práctica 2}
+\begin{itemize}
+    \item \textbf{Movimiento no plano (movimiento cónico):} si la esfera oscila en un cono en lugar de un plano, el período medido difiere del péndulo plano.
+    \item \textbf{Masa no puntual:} El modelo asume una masa puntual, pero se utilizó una esfera de 1,7 $cm$ de radio.
+    \item \textbf{Amplitudes grandes:} Para ángulos mayores a 5$^{\circ}$ (especialmente el de 15$^{\circ}$ incluido en el cálculo final), la aproximación $\sen \theta \approx \theta$ pierde validez, introduciendo un error sistemático.
+\end{itemize}
+
+\subsubsection{Práctica 2 - Conclusiones}
+
+Se logró determinar de forma experimental la aceleración de la gravedad mediante el estudio de un péndulo simple.
+
+A lo largo del desarrollo, se exploró no solo la obtención de un valor numérico para la aceleración de la gravedad, sino también la validez de los procesos aplicados.
+Se propusieron y discutieron diversos métodos y criterios para el cálculo a partir de los datos, lo que nos permitió evaluar diferentes resultados junto con sus implicaciones.
+
+Si bien el primer método de cálculo para la incerteza basado en mediciones individuales arrojó un error menor ($1{,}29\%$), se concluyó que el método basado en el error de la pendiente de la regresión lineal ($2{,}67\%$) es más apropiado para representar la calidad del ajuste al modelo teórico.
+
+Para concluir, ambas prácticas ilustraron la importancia de la propagación correcta de incertezas, la elección del valor representativo, y la expresión de los resultados como $valor \pm incerteza [unidades]$.

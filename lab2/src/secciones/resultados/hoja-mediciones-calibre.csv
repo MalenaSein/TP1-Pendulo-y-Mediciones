@@ -1,0 +1,14 @@
+Medición;h (mm);d (mm)
+1;36,60;24,90
+2;36,70;25,00
+3;36,62;24,90
+4;36,80;25,00
+5;36,58;25,00
+6;36,60;25,00
+;;
+Moda;36,6;25
+Valor medio $X_0$;36,69;24,95
+Promedio;36,65;24,97
+Incertidumbre absoluta $\Delta X$ ;0,11;0,05
+Incertidumbre relativa $\varepsilon_X$ ;0,0029;0,002
+Valor final ;36,69 ± 0,11;24,95 ± 0,05

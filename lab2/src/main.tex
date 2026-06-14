@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[
+    a4paper,
+    top=2.5cm,
+    bottom=2.0cm,
+    left=2.5cm,
+    right=1.0cm,
+    headheight=14pt,
+    headsep=1.30cm,
+    footskip=1.25cm
+]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{url}
+\usepackage{titlesec}
+\usepackage{csvsimple}
+\usepackage{threeparttable}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0.4em}
+\captionsetup{font={small}}
+\setlist[itemize]{leftmargin=*,itemsep=0.3em}
+\setlist[enumerate]{leftmargin=*,itemsep=0.3em}
+
+\titleformat{\section}
+  {\normalfont\bfseries\fontsize{16}{19}\selectfont}
+  {\thesection.}{0.6em}{}
+\titleformat{\subsection}
+  {\normalfont\bfseries\fontsize{14}{17}\selectfont}
+  {\thesubsection.}{0.6em}{}
+\titleformat{\subsubsection}
+  {\normalfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesubsubsection.}{0.6em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\thepage/\pageref{LastPage}}
+
+% TODO bloque de comentarios, sacar al final
+\newcommand{\todo}[1]{\vspace{2mm}\noindent\colorbox{yellow}{\textbf{TODO:}}\colorbox{yellow!20}{\parbox[t]{0.9\textwidth}{#1}}\vspace{2mm}}
+
+\newcommand{\respuesta}[1]{\textcolor{black!50}{#1}}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\input{secciones/portada/main}
+
+\clearpage
+\pagenumbering{arabic}
+
+\input{secciones/titulo-objetivos/main}
+
+%\clearpage
+\input{secciones/resumen/main}
+%\clearpage
+\input{secciones/introduccion/main}
+%\clearpage
+\input{secciones/desarrollo/main}
+%\clearpage
+\input{secciones/resultados/main}
+%\clearpage
+\input{secciones/analisis/main}
+\clearpage
+\input{secciones/hoja-datos/main}
+\clearpage
+\input{secciones/bibliografia/main}
+\clearpage
+\input{secciones/apendices/main}
+
+\end{document}

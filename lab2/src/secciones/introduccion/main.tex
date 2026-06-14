@@ -1,0 +1,116 @@
+\subsection{Introducción Teórica}
+\label{subsec:introduccion-teorica}
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Mediciones e Incertezas}
+
+Toda medición experimental contiene una incerteza inherente.
+Esta incerteza puede ser de naturaleza \textbf{sistemática} (siempre del mismo signo, debida a calibración del instrumento, método inadecuado, etc.) o \textbf{accidental/casual} (de signo variable, debida a errores de apreciación del observador, fluctuaciones del objeto, etc).
+
+Para un conjunto de mediciones directas, se establece el siguiente criterio \cite{catedra2007mediciones} para determinar el valor representativo y la incerteza absoluta:
+\begin{itemize}
+    \item Valor medio:
+    \begin{equation}
+        X_0 = \frac{1}{2}(X_{M} + X_{m})
+        \label{eq:valor-medio}
+    \end{equation}
+    \item Incerteza absoluta:
+    \begin{equation}
+        \Delta X = \frac{1}{2}(X_{M} - X_{m})
+        \label{eq:incerteza-absoluta}
+    \end{equation}
+\end{itemize}
+
+Siendo $\varepsilon_I$ la incerteza del instrumento y $V_F$ las variaciones fluctuantes del propio instrumento a medir.
+Cuando $V_F < \varepsilon_I$, el instrumento no tiene la sensibilidad suficiente para detectar las irregularidades del objeto, por lo que se usa $\varepsilon_I$ directamente como incerteza absoluta.
+Cuando $V_F \geq \varepsilon_I$, el instrumento es suficientemente preciso para capturar las irregularidades físicas, y se usa la fórmula antes mencionada.
+
+La expresión final de una medición directa es: $X = X_0 \pm \Delta X$.
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Densidad de un Cilindro}
+
+Se define la densidad $\rho$ de un cuerpo de masa $M$ y volumen $V$ como:
+\begin{equation}
+    \rho = \frac{M}{V}
+    \label{eq:densidad}
+\end{equation}
+
+Usando $\varepsilon_x = \frac{\Delta X}{X_0}$ como definición de incerteza o error relativo, y aplicando propagación de errores mediante derivadas parciales \cite{baird1991experimentacion}.
+Se calcula la incerteza relativa de la densidad como:
+\begin{equation}
+    \varepsilon_\rho = \varepsilon_M + \varepsilon_V
+    \label{eq:incerteza-relativa-densidad}
+\end{equation}
+
+La deducción completa se desarrolla en el Apéndice~\ref{subsubsec:propagacion-errores-densidad}.
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Volumen de un Cilindro}
+
+Se define el volumen $V$ de un cilindro de diámetro $d$ y altura $h$ como:
+\begin{equation}
+    V = \frac{\pi}{4} d^2 h
+    \label{eq:volumen-cilindro}
+\end{equation}
+
+Análogamente, se calcula la incerteza relativa del volumen como:
+\begin{equation}
+    \varepsilon_V = 2\,\varepsilon_d + \varepsilon_h + \varepsilon_\pi
+    \label{eq:incerteza-relativa-volumen-cilindro}
+\end{equation}
+
+La deducción completa se desarrolla en el Apéndice~\ref{subsubsec:propagacion-errores-volumen-cilindro}.
+
+El error relativo introducido por $\pi$ ($\varepsilon_\pi = \frac{\Delta \pi}{\pi_0}$) proviene de recortar cifras de un número irracional.
+Para minimizar $\varepsilon_\pi$ se elige la aproximación de $\pi$ que cumpla el criterio $10\,\varepsilon_\pi < 2\,\varepsilon_d + \varepsilon_h$.
+
+Con los datos para el calibre, se adoptó $\pi = 3{,}142$.
+
+Para la regla se adoptó $\pi = 3{,}14$, suficiente dada la menor precisión de ese instrumento.
+
+El desarrollo del criterio de elección se puede encontrar en el Apéndice~\ref{subsubsec:criterio-eleccion-pi}.
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Péndulo Simple Ideal}
+
+El péndulo simple ideal consiste en una masa puntual suspendida de un hilo inextensible y sin masa, que oscila sin fricción.
+Para el régimen de \textbf{pequeñas oscilaciones} (donde se cumple la aproximación $\sen \theta \approx \theta$), el sistema se comporta como:
+
+\begin{equation}
+    T = 2\pi \sqrt{\frac{L}{g}} \quad \Longrightarrow \quad T^2 = \frac{4\pi^2}{g}\,L
+    \label{eq:periodo-pendulo-angulos-pequennos}
+\end{equation}
+
+Despejando $g$ de la ecuación y propagando errores obtenemos:
+
+\begin{equation}
+    \varepsilon_g = \frac{\Delta g}{g_0} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0}
+    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos}
+\end{equation}
+
+Dado que la incerteza relativa introducida por $\Delta T$ es 20 veces mayor al necesario para cumplir con la incerteza requerida y siendo $\Delta T = \frac{\Delta t}{n}$, tomamos $n = 20$ oscilaciones para reducir el error.
+
+El modelo de péndulo ideal supone que la masa en suspensión es puntual.
+Esto no es cierto, ya que en la experiencia empleamos esferas de aproximadamente 1,7 $cm$ de radio.
+Una corrección en la fórmula para el período que tenga en cuenta una masa esférica de radio r es:
+
+\begin{equation}
+    T = 2\pi \sqrt{\frac{L + \frac{2r^2}{5L}}{g}}
+    \label{eq:periodo-pendulo-angulos-pequennos-corregido}
+\end{equation}
+
+Para el régimen de \textbf{grandes oscilaciones} (donde no se cumple la aproximación $\sen \theta \approx \theta$) una aproximación más general se logra tomando los primeros cuatro términos de la serie de Taylor:
+
+\begin{equation}
+    T \approx 2\pi \sqrt{\frac{L}{g}} \left[ 1 + \frac{1}{4} \sen^2 \left( \frac{\theta_0}{2} \right) + \frac{9}{64} \sen^4 \left( \frac{\theta_0}{2} \right) + \frac{225}{2304} \sen^6 \left( \frac{\theta_0}{2} \right) \right]
+    \label{eq:periodo_real}
+\end{equation}
