@@ -1,6 +1,6 @@
 instrumento;incertidumbre;uso
-Calibre;$\pm$ 0,01 $mm$;Medición de $h$ y $d$ del cilindro
-Regla milimetrada;$\pm$ 1 $mm$;Medición de $h$, $d$ y $L$
-Probeta graduada;$\pm$ 1 $mL$;Volumen por desplazamiento
-Balanza electrónica;$\pm$ 0{,}01 $g$;Masa del cilindro
-Cronómetro (celular);$\pm$ 0,01 $s$;Tiempo de $n=20$ oscilaciones
+Fuente de alimentación DC;---;Suministro de tensión regulable
+Resistencia metálica (alambre);---;Resistencia bajo estudio
+Multímetro digital UT58D (modo V);---;Medición de voltaje
+Multímetro digital UT58D (modo $\Omega$);Ver Tabla~\ref{tab:especificaciones-multimetro};Medición de resistencias
+Resistencias de laboratorio (código de colores);$\pm 5\%$ (franja dorada);Medición directa (P2) y $R_1$, $R_2$ en circuitos (P3)

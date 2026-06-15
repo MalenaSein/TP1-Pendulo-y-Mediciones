@@ -4,794 +4,89 @@
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Propagación de errores mediante derivadas parciales para la densidad}
-\label{subsubsec:propagacion-errores-densidad}
+\subsubsection{Ajuste por cuadrados mínimos para la regresión lineal}
+\label{subsubsec:ajuste-cuadrados-minimos}
 
-Partiendo de la expresión de la densidad en función de la masa $M$ y el volumen $V$:
-
-\begin{equation}
-    \rho(M, V) = \frac{M}{V}
-    \label{eq:funcion-densidad}
-\end{equation}
-
-Aplicamos la fórmula para incerteza absoluta de una función de varias variables:
-
-\begin{equation}
-    \Delta \rho = \left| \frac{\partial \rho}{\partial M} \right| \Delta M + \left| \frac{\partial \rho}{\partial V} \right| \Delta V
-    \label{eq:incerteza-general}
-\end{equation}
-
-Derivada respecto a la masa $M$, asumiendo $V$ como constante:
-
-\begin{equation}
-    \frac{\partial \rho}{\partial M} = \frac{1}{V}
-    \label{eq:derivada-masa}
-\end{equation}
-
-Derivada respecto al volumen $V$, asumiendo $M$ como constante:
-
-\begin{equation}
-    \frac{\partial \rho}{\partial V} = -\frac{M}{V^2}
-    \label{eq:derivada-volumen}
-\end{equation}
-
-Obtenemos que la incerteza absoluta de la densidad es:
-
-\begin{equation}
-    \Delta \rho = \frac{1}{V_0} \Delta M + \frac{M_0}{V_0^2} \Delta V
-    \label{eq:incerteza-final}
-\end{equation}
-
-Usando $\varepsilon_x = \frac{\Delta X}{X_0}$ como definición de incerteza o error relativo.
-
-Aplicándolo a nuestro resultado, la incerteza relativa de la densidad es:
-
-\begin{equation}
-    \frac{\Delta \rho}{\rho_0} = \frac{\frac{1}{V_0} \Delta M}{\frac{M_0}{V_0}} + \frac{\frac{M_0}{V_0^2} \Delta V}{\frac{M_0}{V_0}}
-    \label{eq:incerteza-relativa-desarrollo}
-\end{equation}
-
-Simplificando:
-
-\begin{equation}
-    \frac{\Delta \rho}{\rho_0} = \frac{\Delta M}{M_0} + \frac{\Delta V}{V_0}
-    \label{eq:incerteza-relativa-simplificada}
-\end{equation}
-
-Es decir, se obtiene la Ecuación~\eqref{eq:incerteza-relativa-densidad} presentada en la introducción.
+\todo{Desarrollo matricial de cuadrados mínimos para $V = mI + b$: fórmulas de $m$, $b$, $\Delta m$, $\Delta b$; propagación para $R = m$.}
 
 % ####################################################################################################################
 % ####################################################################################################################
 
 \clearpage
-\subsubsection{Propagación de errores mediante derivadas parciales para el volumen de un cilindro}
-\label{subsubsec:propagacion-errores-volumen-cilindro}
+\subsubsection{Cálculo detallado de incertezas de resistencias}
+\label{subsubsec:calculo-incertezas-resistencias}
 
-Partiendo de la expresión del volumen de un cilindro en función de su diámetro $d$ y altura $h$:
+Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{100} \times R_{medida} + dgt \times resolución$.
+
+\textbf{R1} (rango 20 M$\Omega$: $\pm$2{,}0\% rdg, $\pm$2 dgt, resolución 10 k$\Omega$):
 
 \begin{equation}
-    V(d, h, \pi) = \frac{\pi}{4} d^2 h
-    \label{eq:funcion-volumen-cilindro}
+    \Delta R = 0{,}020 \times 5{,}61 + 2 \times 0{,}01 = 0{,}1122 + 0{,}02 = 0{,}1322 \ \text{M}\Omega \approx 0{,}1 \ \text{M}\Omega
+    \label{eq:incerteza-R1}
 \end{equation}
 
-Aplicamos la fórmula para incerteza absoluta de una función de varias variables:
-
 \begin{equation}
-    \Delta V = \left| \frac{\partial V}{\partial d} \right| \Delta d + \left| \frac{\partial V}{\partial h} \right| \Delta h + \left| \frac{\partial V}{\partial \pi} \right| \Delta \pi
-    \label{eq:incerteza-general-volumen}
+    \boxed{R_1 = (5{,}6 \pm 0{,}1) \ \text{M}\Omega}
 \end{equation}
 
-Derivada respecto al diámetro $d$, asumiendo $h$ y $\pi$ como constantes:
+\textbf{R2} (rango 2000 k$\Omega$: $\pm$1{,}0\% rdg, $\pm$2 dgt, resolución 1 k$\Omega$):
 
 \begin{equation}
-    \frac{\partial V}{\partial d} = \frac{\pi}{2} d h
-    \label{eq:derivada-diametro}
+    \Delta R = 0{,}010 \times 562 + 2 \times 1 = 5{,}62 + 2 = 7{,}62 \ \text{k}\Omega \approx 8 \ \text{k}\Omega
+    \label{eq:incerteza-R2}
 \end{equation}
 
-Derivada respecto a la altura $h$, asumiendo $d$ y $\pi$ como constantes:
-
 \begin{equation}
-    \frac{\partial V}{\partial h} = \frac{\pi}{4} d^2
-    \label{eq:derivada-altura}
+    \boxed{R_2 = (562 \pm 8) \ \text{k}\Omega}
 \end{equation}
 
-Derivada respecto a $\pi$, asumiendo $d$ y $h$ como constantes:
+\textbf{R3} (rango 20 k$\Omega$: $\pm$0{,}7\% rdg, $\pm$1 dgt, resolución 10 $\Omega$):
 
 \begin{equation}
-    \frac{\partial V}{\partial \pi} = \frac{1}{4} d^2 h
-    \label{eq:derivada-pi}
+    \Delta R = 0{,}007 \times 5500 + 1 \times 10 = 38{,}5 + 10 = 48{,}5 \ \Omega \approx 50 \ \Omega = 0{,}05 \ \text{k}\Omega
+    \label{eq:incerteza-R3}
 \end{equation}
 
-Obtenemos que la incerteza absoluta del volumen de un cilindro es:
-
 \begin{equation}
-    \Delta V = \frac{\pi}{2} d_0 h_0 \Delta d + \frac{\pi}{4} d_0^2 \Delta h + \frac{1}{4} d_0^2 h_0 \Delta \pi
-    \label{eq:incerteza-final-volumen}
-\end{equation}
-
-Usando $\varepsilon_x = \frac{\Delta X}{X_0}$ como definición de incerteza o error relativo.
-
-Aplicándolo a nuestro resultado, la incerteza relativa del volumen de un cilindro es:
-
-\begin{equation}
-    \frac{\Delta V}{V_0} = \frac{\frac{\pi}{2} d_0 h_0 \Delta d}{\frac{\pi}{4} d_0^2 h_0} + \frac{\frac{\pi}{4} d_0^2 \Delta h}{\frac{\pi}{4} d_0^2 h_0} + \frac{\frac{1}{4} d_0^2 h_0 \Delta \pi}{\frac{\pi}{4} d_0^2 h_0}
-    \label{eq:incerteza-relativa-desarrollo-volumen}
-\end{equation}
-
-Simplificando:
-
-\begin{equation}
-    \frac{\Delta V}{V_0} = 2\frac{\Delta d}{d_0} + \frac{\Delta h}{h_0} + \frac{\Delta \pi}{\pi}
-    \label{eq:incerteza-relativa-simplificada-volumen}
-\end{equation}
-
-Es decir, se obtiene la Ecuación~\eqref{eq:incerteza-relativa-volumen-cilindro} presentada en la introducción.
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\clearpage
-\subsubsection{Propagación de errores mediante derivadas parciales para la gravedad en función de la pendiente de la regresión lineal}
-\label{subsubsec:propagacion-errores-g-a-partir-de-la-pendiente}
-
-
-Partiendo de la expresión de la gravedad en función de la pendiente $m$ de la regresión lineal:
-
-\begin{equation}
-    g(m, \pi) = \frac{4\pi^2}{m}
-    \label{eq:funcion-gravedad-pendiente}
-\end{equation}
-
-Aplicamos la fórmula para incerteza absoluta de una función de varias variables:
-
-\begin{equation}
-    \Delta g = \left| \frac{\partial g}{\partial m} \right| \Delta m + \left| \frac{\partial g}{\partial \pi} \right| \Delta \pi
-    \label{eq:incerteza-general-gravedad-pendiente}
-\end{equation}
-
-Derivada respecto a la pendiente $m$, asumiendo $\pi$ como constante:
-
-\begin{equation}
-    \frac{\partial g}{\partial m} = -\frac{4\pi^2}{m^2}
-    \label{eq:derivada-pendiente}
-\end{equation}
-
-Derivada respecto a $\pi$, asumiendo $m$ como constante:
-
-\begin{equation}
-    \frac{\partial g}{\partial \pi} = \frac{8\pi}{m}
-    \label{eq:derivada-pi-gravedad}
-\end{equation}
-
-Obtenemos que la incerteza absoluta de la gravedad es:
-
-\begin{equation}
-    \Delta g = \frac{4\pi^2}{m_0^2} \Delta m + \frac{8\pi}{m_0} \Delta \pi
-    \label{eq:incerteza-final-gravedad}
-\end{equation}
-
-Usando $\varepsilon_x = \frac{\Delta X}{X_0}$ como definición de incerteza o error relativo.
-
-Aplicándolo a nuestro resultado, la incerteza relativa de la gravedad es:
-
-\begin{equation}
-    \frac{\Delta g}{g_0} = \frac{\frac{4\pi^2}{m_0^2} \Delta m}{\frac{4\pi^2}{m_0}} + \frac{\frac{8\pi}{m_0} \Delta \pi}{\frac{4\pi^2}{m_0}}
-    \label{eq:incerteza-relativa-desarrollo-gravedad}
-\end{equation}
-
-Simplificando:
-
-\begin{equation}
-    \frac{\Delta g}{g_0} = \frac{\Delta m}{m_0} + \frac{2\Delta \pi}{\pi}
-    \label{eq:incerteza-relativa-simplificada-gravedad}
-\end{equation}
-
-Dado que $\Delta \pi$ es despreciable según el criterio adoptado en el Apéndice~\ref{subsubsec:criterio-eleccion-pi}, se obtiene la Ecuación~\eqref{eq:incerteza-absoluta-g-pendiente} presentada en los resultados.
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\clearpage
-\subsubsection{Cálculo de $\varepsilon_g$ en función del promedio de los puntos de la regresión lineal}
-\label{subsubsec:calculo-error-relativo-g-promedio-regresion}
-
-Tomamos $\Delta L = 1$, es decir la minima división de la regla y $\Delta T = \frac{\Delta t}{n} = 0{,}01$, siendo $n=20$ y $\Delta t = 0{,}2$ valor asignado por la guía \cite{catedra2007pendulo}.
-
-Calculamos el $\varepsilon_g$ correspondiente a cada $L$ usado en la regresión lineal.
-
-Para $(L_0=517,T_0=1{,}4360)$:
-\begin{equation}
-    \varepsilon_{g1} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0} = \frac{1}{517} + 2 \cdot \frac{0{,}01}{1{,}4360} = 0{,}0158
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-1}
-\end{equation}
-
-Para $(L_0=730,T_0=1{,}7040)$:
-\begin{equation}
-    \varepsilon_{g2} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0} = \frac{1}{730} + 2 \cdot \frac{0{,}01}{1{,}7040} = 0{,}0131
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-2}
-\end{equation}
-
-Para $(L_0=820,T_0=1{,}8355)$:
-\begin{equation}
-    \varepsilon_{g3} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0} = \frac{1}{820} + 2 \cdot \frac{0{,}01}{1{,}8355} = 0{,}0121
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-3}
-\end{equation}
-
-Para $(L_0=1000,T_0=2{,}0220)$:
-\begin{equation}
-    \varepsilon_{g4} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0} = \frac{1}{1000} + 2 \cdot \frac{0{,}01}{2{,}0220} = 0{,}0108
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-4}
-\end{equation}
-
-Calculamos el promedio:
-
-\begin{equation}
-    \varepsilon_{g} = \frac{0{,}0158 + 0{,}0131 + 0{,}0121 + 0{,}0108}{4} = 0{,}0129
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-prom}
+    \boxed{R_3 = (5{,}50 \pm 0{,}05) \ \text{k}\Omega}
 \end{equation}
 
 % ####################################################################################################################
 % ####################################################################################################################
 
 \clearpage
-\subsubsection{Criterio de elección de $\pi$}
-\label{subsubsec:criterio-eleccion-pi}
+\subsubsection{Modelo del divisor resistivo con voltímetro real}
+\label{subsubsec:divisor-resistivo-voltimetro-real}
 
-El criterio formal adoptado es $10 \cdot \varepsilon_\pi < 2\,\varepsilon_d + \varepsilon_h$.
-
-Con los datos para el calibre: $2\,\varepsilon_d + \varepsilon_h = 2 \cdot 0{,}002 + 0{,}0029 = 0{,}0069$.
-
-Se requiere $\varepsilon_\pi < 0{,}0069$.
-
-\begin{table}[H]
-    \centering
-    \label{tab:eleccion-pi-calibre}
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        $\pi_0$ & $\Delta\pi$ & $\varepsilon_\pi$ & $10\,\varepsilon_\pi < 0{,}0069$ \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/apendices/eleccion-pi-calibre.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
-    \end{tabular}
-\end{table}
-
-
-Con los datos para la regla: $2\,\varepsilon_d + \varepsilon_h = 2 \cdot 0{,}04 + 0{,}01 = 0{,}09$.
-
-Se requiere $\varepsilon_\pi < 0{,}09$.
-
-\begin{table}[H]
-    \centering
-    \label{tab:eleccion-pi-regla}
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        $\pi_0$ & $\Delta\pi$ & $\varepsilon_\pi$ & $10\,\varepsilon_\pi < 0{,}09$ \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/apendices/eleccion-pi-regla.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
-    \end{tabular}
-\end{table}
-
-En el caso del pendulo ideal $10 \cdot \varepsilon_\pi < \,\varepsilon_L + 2 \varepsilon_T = 0{,}0129$, dado por la Ecuación \ref{eq:error-relativo-periodo-pendulo-angulos-pequennos-resolucion-prom}.
-
-Se requiere $\varepsilon_\pi < 0{,}0129$.
-
-\begin{table}[H]
-    \centering
-    \label{tab:eleccion-pi-pendulo}
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        $\pi_0$ & $\Delta\pi$ & $\varepsilon_\pi$ & $10\,\varepsilon_\pi < 0{,}0129$ \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/apendices/eleccion-pi-pendulo.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
-    \end{tabular}
-\end{table}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\clearpage
-\subsubsection{Desarrollo del ajuste por cuadrados mínimos}
-\label{subsubsec:ajuste-cuadrados-minimos-pendulo}
-
-Se puede encontrar el mejor ajuste por cuadrados mínimos analíticamente (minimizando el error con derivadas, como se vio en Análisis Matemático) o con un enfoque matricial, como se vio en Álgebra.
-Vamos a utilizar este último camino.
-
-Idealmente, querríamos que $f(x) = c_1 \cdot x  + c_2$ tenga los valores correctos en los 4 puntos:
-
-\begin{center}
-\begin{itemize}
-    \item \centering $f(0{,}517) = c_1 \cdot 0{,}517 + c_2 = 2{,}0620$
-    \item \centering $f(0{,}73) = c_1 \cdot 0{,}73 + c_2 = 2{,}9036$
-    \item \centering $f(0{,}82) = c_1 \cdot 0{,}82 + c_2 = 3{,}3690$
-    \item \centering $f(1) = c_1 \cdot 1 + c_2 = 4{,}0884$
-\end{itemize}
-\end{center}
-
-Esto se puede reescribir matricialmente como:
-
-\begin{equation}
-    \begin{bmatrix}
-        0{,}517 & 1 \\
-        0{,}730 & 1 \\
-        0{,}820 & 1 \\
-        1{,}000 & 1
-    \end{bmatrix}
-    \begin{bmatrix}
-        c_1 \\
-        c_2
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        2{,}0620 \\
-        2{,}9036 \\
-        3{,}3690 \\
-        4{,}0884
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-expresion-inicial}
-\end{equation}
-
-donde:
-
-\begin{equation}
-    A =
-    \begin{bmatrix}
-        0{,}517 & 1 \\
-        0{,}730 & 1 \\
-        0{,}820 & 1 \\
-        1{,}000 & 1
-    \end{bmatrix}
-    \quad
-    \vec{x} =
-    \begin{bmatrix}
-        c_1 \\
-        c_2
-    \end{bmatrix}
-    \quad
-    \vec{b} =
-    \begin{bmatrix}
-        2{,}0620 \\
-        2{,}9036 \\
-        3{,}3690 \\
-        4{,}0884
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-partes-de-la-expresion-inicial}
-\end{equation}
-
-Para encontrar el mejor ajuste, multiplicamos ambos lados por $A^T$ y resolvemos el sistema $A^T A \vec{x} = A^T \vec{b}$.
-Entonces, nos queda:
-
-\begin{equation}
-    A^T \cdot A =
-    \begin{bmatrix}
-        0{,}517 & 0{,}730 & 0{,}820 & 1{,}000 \\
-        1       & 1       & 1       & 1
-    \end{bmatrix}
-    \begin{bmatrix}
-        0{,}517 & 1 \\
-        0{,}730 & 1 \\
-        0{,}820 & 1 \\
-        1{,}000 & 1
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        2{,}4726 & 3{,}067 \\
-        3{,}067 & 4
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-ATA}
-\end{equation}
-
-\begin{equation}
-    A^T \cdot b =
-    \begin{bmatrix}
-        0{,}517 & 0{,}730 & 0{,}820 & 1{,}000 \\
-        1       & 1       & 1       & 1
-    \end{bmatrix}
-    \begin{bmatrix}
-        2{,}0620 \\
-        2{,}9036 \\
-        3{,}3690 \\
-        4{,}0884
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        10{,}0367 \\
-        12{,}423
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-ATb}
-\end{equation}
-
-Finalmente, invirtiendo la matriz $A^T A$ y multiplicándola a ambos lados, obtenemos:
-
-\begin{equation}
-    \vec{x} = (A^T A)^{-1} A^T \vec{b}
-    \label{eq:cuadrados-minimos-solucion-1}
-\end{equation}
-
-\begin{equation}
-    =
-    \begin{bmatrix}
-        2{,}4726 & 3{,}067 \\
-        3{,}067 & 4
-    \end{bmatrix}
-    ^{-1}
-    \begin{bmatrix}
-        10{,}0367 \\
-        12{,}423
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-solucion-2}
-\end{equation}
-
-\begin{equation}
-    =
-    \begin{bmatrix}
-        8{,}2667 & -6{,}3385 \\
-        -6{,}3385 & 5{,}1101
-    \end{bmatrix}
-    \begin{bmatrix}
-        10{,}0367 \\
-        12{,}423
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-solucion-3}
-\end{equation}
-
-\begin{equation}
-    =
-    \begin{bmatrix}
-        4{,}2270 \\
-        -0{,}1353
-    \end{bmatrix}
-    \label{eq:cuadrados-minimos-solucion-4}
-\end{equation}
-
-Entonces, el mejor ajuste por cuadrados mínimos es $a(x) = 4{,}2270 \cdot x -0{,}1353$.
-
-Se verificó el resultado del desarrollo manual con una planilla de cálculo y se obtuvo el mismo resultado $a(x) = 4{,}23 \cdot x -0{,}135$.\\
-
-El error $r = \sum_{i=0}^{k} (y_i - f(x_i))^2$ es igual a la norma al cuadrado del vector $\vec{b} - A\vec{x}$, es decir:
-
-\begin{equation}
-    r = \|\vec{b} - A\vec{x}\|^2
-    \label{eq:error-cuadrados-minimos}
-\end{equation}
-
-Primero obtenemos $A\vec{x}$
-
-\begin{equation}
-    A\vec{x} =
-    \begin{bmatrix}
-        0{,}517 & 1 \\
-        0{,}730 & 1 \\
-        0{,}820 & 1 \\
-        1{,}000 & 1
-    \end{bmatrix}
-    \begin{bmatrix}
-        4{,}2270 \\
-        -0{,}1353
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        2{,}0501 \\
-        2{,}9504 \\
-        3{,}3308 \\
-        4{,}0917
-    \end{bmatrix}
-    \label{eq:error-cuadrados-minimos-Ax}
-\end{equation}
-
-Finalmente, obtenemos el error cuadrático total $r$:
-
-\begin{equation}
-    \vec{b} - A\vec{x} =
-    \begin{bmatrix}
-        2{,}0620 \\
-        2{,}9036 \\
-        3{,}3690 \\
-        4{,}0884
-    \end{bmatrix}
-    -
-    \begin{bmatrix}
-        2{,}0501 \\
-        2{,}9504 \\
-        3{,}3308 \\
-        4{,}0917
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-        0{,}0119 \\
-        -0{,}0468 \\
-        0{,}0382 \\
-        -0{,}0033
-    \end{bmatrix}
-    \label{eq:error-cuadrados-minimos-resolucion}
-\end{equation}
-
-\begin{equation}
-    r = \|
-    \begin{bmatrix}
-        0{,}0119 \\
-        -0{,}0468 \\
-        0{,}0382 \\
-        -0{,}0033
-    \end{bmatrix}
-    \| ^2
-    \label{eq:error-cuadrados-minimos-resolucion-2}
-\end{equation}
-
-\begin{equation}
-    r = 0{,}0038
-    \label{eq:error-cuadrados-minimos-r}
-\end{equation}
-
-Adicionalmente, calculamos la dispersión como $d = \sum (x_i - \bar{x})^2$:
-
-Calculamos el promedio de los valores:
-
-\begin{equation}
-    \bar{x} = \frac{1}{n} \sum x_i = \frac{0{,}517 + 0{,}730 + 0{,}820 + 1{,}000}{4} = 0{,}7668
-    \label{eq:dispersion-cuadrados-minimos-r-promedio}
-\end{equation}
-
-Calculamos la sumatoria de los cuadrados de las diferencias entre los valores y el promedio:
-
-\begin{equation}
-    d =
-    (0{,}517 - \bar{x})^2 +
-    (0{,}730 - \bar{x})^2 +
-    (0{,}820 - \bar{x})^2 +
-    (1{,}000 - \bar{x})^2
-    = 0{,}1210
-    \label{eq:dispersion-cuadrados-minimos-r}
-\end{equation}
-
-
-% ####################################################################################################################
-% ####################################################################################################################
-\clearpage
-
-Con el objetivo de validar nuestro desarrollo manual, se decidió calcular coeficiente de correlación $R^2$ a fin de comparar el resultado con el valor obtenido mediante una planilla de cálculo.
-
-\begin{equation}
-    R^2 = 1 - \frac{r}{\sum (y_i - \bar{y})^2}
-    \label{eq:error-cuadrados-minimos-formula-R2}
-\end{equation}
-
-Calculamos el promedio de los valores:
-
-\begin{equation}
-    \bar{y} = \frac{1}{n} \sum y_i = \frac{2{,}0620 + 2{,}9036 + 3{,}3690 + 4{,}0884}{4} = 3{,}1058
-    \label{eq:error-cuadrados-minimos-promedio-para-R2}
-\end{equation}
-
-Calculamos la sumatoria de los cuadrados de las diferencias entre los valores y el promedio:
-
-\begin{equation}
-    \sum (y_i - \bar{y})^2 =
-    (2{,}0620 - \bar{y})^2 +
-    (2{,}9036 - \bar{y})^2 +
-    (3{,}3690 - \bar{y})^2 +
-    (4{,}0884 - \bar{y})^2
-    = 2{,}1652
-    \label{eq:error-cuadrados-minimos-divisor-para-R2}
-\end{equation}
-
-Finalmente:
-
-\begin{equation}
-    R^2 = 1 - \frac{0{,}0038}{2{,}1652} = 0{,}9982
-    \label{eq:error-cuadrados-minimos-formula-R2-resolucion}
-\end{equation}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\clearpage
-\subsubsection{Desarrollo de la verifcación de la solución a la ecuación diferencial de segundo orden que describe un movimiento armónico simple}
-\label{subsubsec:verifiacion-solucion-edo-MAS}
-Sea la ecuación 
-\begin{equation}
-   x(t) = A_0 \text{sen}(\omega t + \varphi_0) 
-\end{equation}
-
-Podemos verificar que es solución a la ecuación diferencial de segundo orden que describe un \textit{M.A.S.} calculando su derivada segunda y viendo si cumple con la ecuación propia de dicho movimiento. 
-
-Vemos que, aplicando la regla de la cadena, la primera deriva es
-\begin{equation}
-    \frac{dx}{dt}= A_0\omega \cos(\omega t + \varphi_0)
-\end{equation}
- 
- Así entonces, la segunda derivada es
- \begin{equation}
-     \frac{d^2x}{dt^2}= -A_0\omega^2 \text{sen}(\omega t + \varphi_0)
- \end{equation}
- 
- De esta última ecuación podemos identificar el factor $A_0\text{sen}(\omega t+ \varphi_0)$ que se puede reemplazar con $x(t)$, es decir:
-\begin{equation}
-    \frac{d^2x}{dt^2}= -\omega^2x
-\end{equation} 
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\clearpage
-\subsubsection{Deducción de la ecuación diferencial de segundo orden para un péndulo ideal a partir de las leyes de Newton}
-\label{subsubsec:deduccion-edo-pendulo-ideal}
-
-Definimos un sistema de coordenadas polares $(\hat{r}, \hat{\theta})$ con el origen en el punto de pivote, el eje radial en la dirección del hilo y el eje tangencial perpendicular al hilo en la dirección del crecimiento del ángulo $\theta$. 
-
-Las fuerzas ejercidas sobre la masa $m$ son: La tensión $\vec{F_T}$ y el peso $\vec{P}$. La tensión que solo actua en el eje radial hacia el pivote ($-\hat{r}$), es decir:
-\begin{equation}
-    \vec{F_T}=F_T \cdot\hat{\theta}
-\end{equation}
-
-Y el peso que siempre actua hacia 'abajo':
-\begin{equation}
-    \vec{P}=m\vec{g}
-\end{equation}
-
-
-Representaremos las componentes del peso como $\vec{P}_r$ en el eje radial y $\vec{P}_{\theta}$ en el eje tangencial, análogamente la notación para las componentes de la acelaración son $\vec{a_r}$ y $\vec{a_\theta}$. Es decir:
-\begin{equation}
-    \begin{cases}
-        \vec{P}=\vec{P}_r+\vec{P}_{\theta}\\
-        \vec{a}= \vec{a_r} + \vec{a_\theta}
-    \end{cases}
-\end{equation}
-
-En el caso del péndulo simple el movimiento solo se realiza en el eje tangencial por lo que tambien tendremos en cuenta que:
-\begin{equation}
-    \vec{a_r}=0
-\end{equation}
-
-Descomponiendo el sistema de ecuaciones en los dos ejes (radiales y tangenciales) y sabiendo que la aceleración tangencial para un radio $r$ es $\vec{a_\theta}(t)=r\frac{d^2\theta}{dt^2}\hat{\theta}$, obtenemos:
-\begin{equation}
-        \begin{cases}
-             \vec{P_r}-\vec{F_T}=\vec{0}\\
-             \vec{P_{\theta}}=m\vec{a_\theta}
-        \end{cases}
-        \begin{cases}
-            m\vec{g}\cos(\theta)=\vec{F_T}\\
-            -m\vec{g}\text{ sen}(\theta)=m\vec{a_\theta}
-        \end{cases}
-        \begin{cases}
-            m\vec{g}\cos(\theta)=\vec{F_T}\\
-            -\vec{g}\text{ sen}(\theta)=L\frac{d^2\theta}{dt^2}\hat{\theta}
-        \end{cases}
-        \begin{cases}
-            m\vec{g}\cos(\theta)=\vec{F_T}\\
-            -\frac{\vec{g}}{L}\text{ sen}(\theta)=\frac{d^2\theta}{dt^2}\hat{\theta}
-        \end{cases}
-\end{equation}
-Donde el módulo de la última ecuación en el eje tangencial nos confirma exactamente la ecuación que esperaríamos deducir a partir del análisis de la leyes de newton, es decir:
-\begin{equation}
-    \frac{d^2\theta}{dt^2} = -\frac{g}{L} \text{sen}(\theta)
-\end{equation}
-
+\todo{Deducción de $V_{le\acute{i}da}$ con $R'_2 = R_2 \| R_{int}$; cálculo numérico para $R_1=R_2 \in \{5{,}6\ \text{k}\Omega;\ 560\ \text{k}\Omega;\ 5{,}6\ \text{M}\Omega\}$ comparado con el valor ideal.}
 
 % ####################################################################################################################
 % ####################################################################################################################
 
 \clearpage
 \subsubsection{Preguntas de la guía experimental}
-\label{subsubsec:contestacion-preguntas-guia}
+\label{subsubsec:preguntas-guia}
 
-\paragraph{Práctica 1 --- Criterios de Recorte y Precisión}
+\todo{Responder preguntas}
+
+\paragraph{Práctica 1 --- Ley de Ohm}
 \begin{itemize}
-    \item El caso del número $\pi$: ¿Cuántos decimales se le deben asignar al número $\pi$ para que el error cometido por el recorte sea despreciable frente al error de las mediciones directas?
+    \item ¿Qué significado tienen los valores de la pendiente $m$ y la ordenada al origen $b$?
 
-    \respuesta{
-        Para el calibre, se adoptó $\pi = 3{,}142$ (3 decimales) ya que cumple el criterio $10 \cdot \varepsilon_\pi < 2\,\varepsilon_d + \varepsilon_h$.
-        Para la regla milimetrada, se adoptó $\pi = 3{,}14$ (2 decimales) ya que cumple el mismo criterio.
-        El desarrollo se puede encontrar en el Apéndice \ref{subsubsec:criterio-eleccion-pi}.
-    }
+    \respuesta{Completar.}
 
-    \item Defina y justifique el criterio utilizado para llamar a un error ``despreciable'' (por ejemplo: que sea 10, 50 o 100 veces menor que la menor de las incertezas medidas).
+    \item ¿Qué tal si para cada par $(V_n, I_n)$ calculamos $R_n = V_n/I_n$ y luego promediamos los $R_n$? ¿Estamos haciendo lo mismo que la regresión? ¿Qué daría en nuestro caso?
 
-    \respuesta{
-        Se adopta como criterio considerar despreciable todo error al menos un orden de magnitud menor que la menor incertidumbre medida, ya que en esas condiciones su contribución a la incertidumbre total es insignificante frente a las fuentes de error dominantes, y no afecta de manera apreciable el resultado final.
-    }
+    \respuesta{Completar.}
 \end{itemize}
 
-\paragraph{Práctica 1 --- Análisis de Resultados y Conclusiones}
+\paragraph{Práctica 3 --- Influencia del aparato de medida}
 \begin{itemize}
-    \item Compare los valores de densidad obtenidos mediante los tres métodos (calibre, regla milimetrada y probeta graduada). ¿Se superponen sus rangos de incerteza?
+    \item ¿Qué resultado se espera al sumar (con signo) las caídas de tensión en el circuito? ¿Qué se obtuvo?
 
-    \respuesta{
-        Si, los rangos de incertidumbre de los tres metodos se superponen.
-        Además, los rangos están contenidos entre ellos.
-    }
+    \respuesta{Completar.}
 
-    \item Represente gráficamente los intervalos sobre la recta real. En base a esto: ¿Son las mediciones comparables entre sí? (Es decir, ¿existe una franja de intersección no nula entre todas las bandas de incerteza?).
+    \item ¿Qué sucede con la Segunda Ley de Kirchhoff? ¿A veces anda y a veces no?
 
-    \respuesta{
-        Si, son comparables, la maxima franja de interseccion entre los tres metodos es igual al rango del calibre, como se puede ver en la Figura \ref{fig:grafico-intervalos}.
-    }
-
-    \item Tras buscar los valores tabulados para la densidad del latón y del bronce en manuales técnicos: ¿Es posible decidir con seguridad de qué material está construido el cilindro utilizado en la práctica? Justifique su respuesta comparando los intervalos medidos con los valores de tabla.
-
-    \respuesta{
-        La densidad de referencia más consistente es la de la constante de las pesas de latón $8{,}4 \frac{g}{cm^3}$.
-        Esta, está evidentemente contenida en el rango mas general del laton.
-        El bronce se encuentra fuera del rango del calibre, por lo que podemos descartarlo.
-        Si por el contrario, solo dispusieramos de los resultados de la regla milimetrada o la probeta no podríamos hacerlo, ya que, sus rangos de incertidumbre sí lo contienen.
-        Las densidades de referencia fueron obtenidas de \cite{kayelaby1911}, pág. 20.
-    }
+    \respuesta{Completar.}
 \end{itemize}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\paragraph{Práctica 2 --- Análisis del Modelo Teórico}
-\begin{itemize}
-    \item Dada la solución $x(t) = A_0 \text{sen}(\omega t + \varphi_0)$ para un movimiento armónico simple: ¿Cuáles son las variables en la ecuación y cuáles los parámetros?
-
-    \respuesta{Las variables de la ecuación son: el tiempo $t$ y la posición en función del tiempo $x(t)$; la primera siendo la variable independiente y la segunda la variable dependiente que representa la posición de la masa puntual respecto al punto de equilibrio. Los parámetros que definen las propiedades específicas del movimiento del sistema físico en cuestión son: la amplitud $A_0$, que representa la máxima elongación ; la fase inicial $\varphi_0$, que ajusta la ecuación para reflejar las condiciones físicas del movimiento para $t=0$; la frecuencia angular $\omega =\frac{2\pi}{T}$  que representa la velocidad de cambio de fase.}
-
-    \item ¿Cuáles de los parámetros son característicos del sistema oscilante y cuáles dependen de un agente externo?
-
-    \respuesta{La amplitud $A_0$ y la fase inicial $\varphi_0$ se asocian a las condiciones iniciales del sistema impuestos por un agente externo mientras que la frecuencia angular $\omega$ se  vincula a las propiedades físicas del sistema oscilante en sí. }
-
-    \item Verifique que la ecuación anterior es solución de la ecuación diferencial del movimiento $a = \frac{d^2x}{dt^2} = -\omega^2x$ e indique otra solución posible.
-
-    \respuesta{Para verificar que la ecuación dada es solución a la ecuación diferencial, calculamos la segunda derivada de la posición respecto al tiempo y verificamos que el resultado es la misma expresión del movimiento oscilante unidimensional. Los detalles de la cuenta se pueden encontrar en el apéndice \ref{subsubsec:verifiacion-solucion-edo-MAS}}
-    
-
-    \respuesta{Otra posible solución se obtiene a partir de la descripción matemática de la misma solución pero empleando el operador $cos$ en vez de $\text{sen}$, para introducir el comportamiento oscilatorio, y empleando un desfaz diferente para que matemáticame las posiciones coincidan para un mismo $t$ dado el desfaz incertado por cambiar de operador ($\cos(\alpha) = \text{sen}\left(\alpha + \frac{\pi}{2}\right)$), esta solución sería $x(t) = A_0 \cos(\omega t + \phi_0)$.}
-
-    \item A partir de las leyes de Newton para un péndulo ideal, halle la ecuación diferencial:
-    \[ \frac{d^2\theta}{dt^2} = -\frac{g}{L} \text{sen}(\theta) \]
-    Especifique el sistema de coordenadas utilizado para su obtención.
-
-    \respuesta{La deducción completa parte de un análsis de las fuerzas ejercidas sobre la masa $m$ en el contexto del péndulo idal. El planteamiento detallado de la deducción de la EDO que describe el movimiento del péndulo idal se detalla en el apéndice \ref{subsubsec:deduccion-edo-pendulo-ideal}}.
-
-    \item Al realizar la aproximación para ángulos pequeños ($\text{sen}(\theta) \cong \theta$), la ecuación se reescribe como $\frac{d^2\theta}{dt^2} = -\frac{g}{L}\theta$. ¿A qué tipo de movimiento corresponde? Escriba una posible solución $\theta(t)$.
-
-    \respuesta{La ecuación describe un \textit{movimiento armónico simple (MAS)}. Sea $\omega= \sqrt{\frac{g}{L}}\implies \omega= \frac{g}{L}$, entonces una posible solución sería la descrita previamente para el movimiento armónico lineal $\theta(t)=A_0 \text{ sen}(\omega t+\varphi_0) \implies \frac{d\theta}{dt}=A_0\omega \cos (\omega t+ \varphi_0) \implies \frac{d^2\theta}{dt^2}=-A_0\omega^2 \text{ sen} (\omega t+ \varphi_0)=-\frac{g}{L}\theta(t)$ que es exactamente la ecuación inicial.}
-\end{itemize}
-
-\paragraph{Práctica 2 --- Diseño Experimental y Procedimiento}
-\begin{itemize}
-    \item Considerando los elementos disponibles (cinta métrica, calibre, cronómetro manual): ¿Podemos esperar obtener un valor de $g$ con un error menor al 2\%?
-
-    \respuesta{
-        Si, perfectamente. La mayor fuente de incerteza está asociado al accionar humano del cronómetro, $\Delta t = 0{,}2$.
-        Podemos reducir el mismo al tomar intervalos más grandes y dividir por la cantidad de oscilaciones $\Delta T = \frac{\Delta t}{n}$, con $n=20$, satisfacemos el criterio esperado.
-        Destacar que no podriamos conseguir una precision infinita, un intervalo más grande además implica exponer el pendulo más tiempo a factores externos, como por ejemplo el rozamiento con el aire.
-    }
-
-    \item En base al Anexo 1 (Análisis de dependencias del período):
-    \begin{itemize}
-        \item ¿Depende el período de la amplitud de oscilación? Analice tanto para amplitudes grandes como pequeñas.
-
-        \respuesta{
-            Para amplitudes pequeñas (donde rige la aproximación $\sen \theta \approx \theta$), la Ecuación \ref{eq:periodo-pendulo-angulos-pequennos} indica que el período es independiente de la amplitud.
-            Para amplitudes grandes, la aproximación ideal deja de ser válida y el período sí depende del ángulo inicial, como se ve en la Ecuación \ref{eq:periodo_real}.
-        }
-
-        \item ¿Depende el período de la masa del cuerpo suspendido?
-
-        \respuesta{
-            En el modelo teórico del péndulo ideal, que asume una masa puntual sin volumen, el período no depende del valor de la masa.
-            Sin embargo, dado que en el experimento real no se usó una masa puntual sino una esfera de aproximadamente $1{,}7$ cm de radio, la distribución de esa masa afecta la inercia.
-            Por eso, la guía plantea una corrección con la Ecuación \ref{eq:periodo-pendulo-angulos-pequennos-corregido}.
-        }
-
-        \item ¿Depende el período de la longitud del hilo?
-
-        \respuesta{
-            Sí, existe una dependencia directa y fundamental con la longitud del hilo.
-            Se puede ver en la Ecuación \ref{eq:periodo-pendulo-angulos-pequennos} y en los resultados empíricos mostrados en la Tabla \ref{tab:periodos}.
-        }
-    \end{itemize}
-\end{itemize}
-

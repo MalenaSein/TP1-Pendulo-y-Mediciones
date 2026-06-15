@@ -3,86 +3,25 @@
 
 Se adjunta la hoja de datos original con las mediciones realizadas en el laboratorio.
 
-\subsubsection{Práctica 1 --- Mediciones del Cilindro}
+\subsubsection{Práctica 1 --- Ley de Ohm}
+
+\todo{P1: tabla de pares $(I, V)$ registrados, firmada por el docente.}
+
+\subsubsection{Práctica 2 --- Medición de Resistencias}
 
 \begin{table}[H]
     \centering
-    \caption{Mediciones con calibre}
-    \label{tab:hoja-calibre}
-    \begin{tabular}{|c|c|}
+    \caption{Mediciones directas con multímetro UT58D (modo $\Omega$)}
+    \label{tab:hoja-resistencias}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{$h$ (mm)} & \textbf{$d$ (mm)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/hoja-datos/calibre.csv}{}
-        {\csvcoli & \csvcolii}
+        \textbf{Resistencia} & \textbf{Rango utilizado} & \textbf{$R_{med}$} & \textbf{$\Delta R$} \\ \hline
+        R1 & 20 M$\Omega$   & 5{,}61 M$\Omega$  & 0{,}1 M$\Omega$ \\ \hline
+        R2 & 2000 k$\Omega$ & 562 k$\Omega$     & 8 k$\Omega$ \\ \hline
+        R3 & 20 k$\Omega$   & 5{,}50 k$\Omega$  & 0{,}05 k$\Omega$ \\ \hline
     \end{tabular}
 \end{table}
 
-\begin{table}[H]
-    \centering
-    \caption{Mediciones con regla milimetrada}
-    \label{tab:hoja-regla}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{$h$ (mm)} & \textbf{$d$ (mm)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/hoja-datos/regla.csv}{}
-        {\csvcoli & \csvcolii}
-    \end{tabular}
-\end{table}
+\subsubsection{Práctica 3 --- Influencia del aparato de medida}
 
-\begin{table}[H]
-    \centering
-    \caption{Mediciones con probeta graduada}
-    \label{tab:hoja-probeta}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{$X_1$ (mL)} & \textbf{$X_2$ (mL)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/hoja-datos/probeta.csv}{}
-        {\csvcoli & \csvcolii}
-    \end{tabular}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Mediciones con balanza}
-    \label{tab:hoja-balanza}
-    \begin{tabular}{|c|}
-        \hline
-        \textbf{Masa $M_0$ (g)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/hoja-datos/balanza.csv}{}
-        {\csvcoli}
-    \end{tabular}
-\end{table}
-
-\subsubsection{Práctica 2 --- Péndulo Ideal}
-
-\begin{table}[H]
-    \centering
-    \caption{Tiempos $t$ (s) para $n = 20$ oscilaciones}
-    \label{tab:hoja-pendulo}
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \textbf{$L$ (mm)} & $\theta = 5^{\circ}$ & $\theta = 9^{\circ}$ & $\theta = 15^{\circ}$ & $\theta = 20^{\circ}$ \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/hoja-datos/pendulo-tiempos.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv}
-    \end{tabular}
-\end{table}
+\todo{P3: tabla de $V_{R_1}$, $V_{R_2}$, $V_{fuente}$ para cada combinación de resistencias, firmada por el docente.}

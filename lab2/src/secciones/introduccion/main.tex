@@ -6,111 +6,59 @@
 
 \subsubsection{Mediciones e Incertezas}
 
-Toda medición experimental contiene una incerteza inherente.
+Toda medición experimental contiene una incerteza inherente \cite{catedra2007mediciones}.
 Esta incerteza puede ser de naturaleza \textbf{sistemática} (siempre del mismo signo, debida a calibración del instrumento, método inadecuado, etc.) o \textbf{accidental/casual} (de signo variable, debida a errores de apreciación del observador, fluctuaciones del objeto, etc).
 
-Para un conjunto de mediciones directas, se establece el siguiente criterio \cite{catedra2007mediciones} para determinar el valor representativo y la incerteza absoluta:
-\begin{itemize}
-    \item Valor medio:
-    \begin{equation}
-        X_0 = \frac{1}{2}(X_{M} + X_{m})
-        \label{eq:valor-medio}
-    \end{equation}
-    \item Incerteza absoluta:
-    \begin{equation}
-        \Delta X = \frac{1}{2}(X_{M} - X_{m})
-        \label{eq:incerteza-absoluta}
-    \end{equation}
-\end{itemize}
-
-Siendo $\varepsilon_I$ la incerteza del instrumento y $V_F$ las variaciones fluctuantes del propio instrumento a medir.
-Cuando $V_F < \varepsilon_I$, el instrumento no tiene la sensibilidad suficiente para detectar las irregularidades del objeto, por lo que se usa $\varepsilon_I$ directamente como incerteza absoluta.
-Cuando $V_F \geq \varepsilon_I$, el instrumento es suficientemente preciso para capturar las irregularidades físicas, y se usa la fórmula antes mencionada.
+En el caso de instrumentos digitales, la incerteza sistemática queda determinada por las especificaciones del fabricante, y se calcula a partir de dos contribuciones: el error proporcional a la lectura (\textit{reading}) y el error en dígitos (dgt) sobre la última cifra del display.
 
 La expresión final de una medición directa es: $X = X_0 \pm \Delta X$.
 
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Densidad de un Cilindro}
+\subsubsection{Ley de Ohm}
 
-Se define la densidad $\rho$ de un cuerpo de masa $M$ y volumen $V$ como:
-\begin{equation}
-    \rho = \frac{M}{V}
-    \label{eq:densidad}
-\end{equation}
-
-Usando $\varepsilon_x = \frac{\Delta X}{X_0}$ como definición de incerteza o error relativo, y aplicando propagación de errores mediante derivadas parciales \cite{baird1991experimentacion}.
-Se calcula la incerteza relativa de la densidad como:
-\begin{equation}
-    \varepsilon_\rho = \varepsilon_M + \varepsilon_V
-    \label{eq:incerteza-relativa-densidad}
-\end{equation}
-
-La deducción completa se desarrolla en el Apéndice~\ref{subsubsec:propagacion-errores-densidad}.
+\todo{P1: Ley de Ohm ($V = IR$), relación lineal $V$ vs.\ $I$, ajuste $V = mI + b$ con $m = R$. Significado de $m$ y $b$; diferencia entre regresión y promedio de $R_n = V_n/I_n$.}
 
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Volumen de un Cilindro}
+\subsubsection{Multímetro Digital como Ohmímetro}
 
-Se define el volumen $V$ de un cilindro de diámetro $d$ y altura $h$ como:
+El multímetro digital (tester) permite medir resistencias operando como \textbf{ohmímetro}: una fuente de corriente interna hace circular una corriente conocida $I$ a través de la resistencia desconocida $R$, y un voltímetro interno mide la caída de tensión $V$ resultante. Dado que $V = IR$, el valor de $R$ se obtiene como $R = V/I$.
+
+El voltímetro interno tiene una lectura a fondo de escala de \textbf{200 mV}. La corriente de prueba varía según el rango seleccionado:
+
+\begin{itemize}
+    \item Rango 200 $\Omega$ $\rightarrow$ $I = 1$ mA \quad (1 mA $\times$ 200 $\Omega$ = 200 mV)
+    \item Rango 2 k$\Omega$ $\rightarrow$ $I = 0{,}1$ mA
+    \item Rangos mayores $\rightarrow$ corrientes menores
+\end{itemize}
+
+La incerteza de la medición se estima con la fórmula del fabricante:
+
 \begin{equation}
-    V = \frac{\pi}{4} d^2 h
-    \label{eq:volumen-cilindro}
+    \Delta R = \frac{\%rdg}{100} \times R_{medida} + dgt \times resolución
+    \label{eq:incerteza-multimetro}
 \end{equation}
 
-Análogamente, se calcula la incerteza relativa del volumen como:
-\begin{equation}
-    \varepsilon_V = 2\,\varepsilon_d + \varepsilon_h + \varepsilon_\pi
-    \label{eq:incerteza-relativa-volumen-cilindro}
-\end{equation}
-
-La deducción completa se desarrolla en el Apéndice~\ref{subsubsec:propagacion-errores-volumen-cilindro}.
-
-El error relativo introducido por $\pi$ ($\varepsilon_\pi = \frac{\Delta \pi}{\pi_0}$) proviene de recortar cifras de un número irracional.
-Para minimizar $\varepsilon_\pi$ se elige la aproximación de $\pi$ que cumpla el criterio $10\,\varepsilon_\pi < 2\,\varepsilon_d + \varepsilon_h$.
-
-Con los datos para el calibre, se adoptó $\pi = 3{,}142$.
-
-Para la regla se adoptó $\pi = 3{,}14$, suficiente dada la menor precisión de ese instrumento.
-
-El desarrollo del criterio de elección se puede encontrar en el Apéndice~\ref{subsubsec:criterio-eleccion-pi}.
+donde \textbf{\%rdg} es el error porcentual sobre la lectura (\textit{reading}) y \textbf{dgt} es la cantidad de dígitos de incerteza en la última cifra significativa.
 
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Péndulo Simple Ideal}
+\subsubsection{Código de Colores de Resistencias}
 
-El péndulo simple ideal consiste en una masa puntual suspendida de un hilo inextensible y sin masa, que oscila sin fricción.
-Para el régimen de \textbf{pequeñas oscilaciones} (donde se cumple la aproximación $\sen \theta \approx \theta$), el sistema se comporta como:
-
-\begin{equation}
-    T = 2\pi \sqrt{\frac{L}{g}} \quad \Longrightarrow \quad T^2 = \frac{4\pi^2}{g}\,L
-    \label{eq:periodo-pendulo-angulos-pequennos}
-\end{equation}
-
-Despejando $g$ de la ecuación y propagando errores obtenemos:
+Las resistencias tienen 4 franjas de color: las dos primeras son dígitos, la tercera es el multiplicador y la cuarta es la tolerancia (dorado = $\pm 5\%$, plateado = $\pm 10\%$).
 
 \begin{equation}
-    \varepsilon_g = \frac{\Delta g}{g_0} = \frac{\Delta L}{L_0} + 2 \cdot \frac{\Delta T}{T_0}
-    \label{eq:error-relativo-periodo-pendulo-angulos-pequennos}
+    R_{nominal} = (\text{dígito}_1 \cdot 10 + \text{dígito}_2) \times \text{multiplicador}
+    \label{eq:codigo-colores}
 \end{equation}
 
-Dado que la incerteza relativa introducida por $\Delta T$ es 20 veces mayor al necesario para cumplir con la incerteza requerida y siendo $\Delta T = \frac{\Delta t}{n}$, tomamos $n = 20$ oscilaciones para reducir el error.
+% ####################################################################################################################
+% ####################################################################################################################
 
-El modelo de péndulo ideal supone que la masa en suspensión es puntual.
-Esto no es cierto, ya que en la experiencia empleamos esferas de aproximadamente 1,7 $cm$ de radio.
-Una corrección en la fórmula para el período que tenga en cuenta una masa esférica de radio r es:
+\subsubsection{Influencia del Aparato de Medida}
 
-\begin{equation}
-    T = 2\pi \sqrt{\frac{L + \frac{2r^2}{5L}}{g}}
-    \label{eq:periodo-pendulo-angulos-pequennos-corregido}
-\end{equation}
-
-Para el régimen de \textbf{grandes oscilaciones} (donde no se cumple la aproximación $\sen \theta \approx \theta$) una aproximación más general se logra tomando los primeros cuatro términos de la serie de Taylor:
-
-\begin{equation}
-    T \approx 2\pi \sqrt{\frac{L}{g}} \left[ 1 + \frac{1}{4} \sen^2 \left( \frac{\theta_0}{2} \right) + \frac{9}{64} \sen^4 \left( \frac{\theta_0}{2} \right) + \frac{225}{2304} \sen^6 \left( \frac{\theta_0}{2} \right) \right]
-    \label{eq:periodo_real}
-\end{equation}
+\todo{P3: 2ª Ley de Kirchhoff ($\sum V = 0$), divisor resistivo ideal $V_{le\acute{i}da} = \frac{R_2}{R_1+R_2}V_0$. Con voltímetro real ($R_{int} = 10\ \text{M}\Omega$): $R'_2 = R_2 \| R_{int}$; el efecto es apreciable cuando $R_2 \sim R_{int}$. ($R_1$, $R_2$ son las del circuito, no las de la Práctica 2.)}

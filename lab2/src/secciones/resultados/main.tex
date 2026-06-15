@@ -4,451 +4,59 @@
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Práctica 1 --- Mediciones con Calibre}
+\subsubsection{Práctica 1 --- Ley de Ohm}
 
-Como $\text{$V_F$} > \varepsilon_I$ tanto para $h$ como para $d$, se aplica la fórmula para incerteza absoluta.
+\todo{P1: tabla de pares $(I, V)$ con incertezas; gráfico $V$ vs.\ $I$ con barras de error y recta de ajuste; resultado final $R = m \pm \Delta m$ y ordenada $b \pm \Delta b$ (desarrollo en Apéndice~\ref{subsubsec:ajuste-cuadrados-minimos}).}
+
+% ####################################################################################################################
+% ####################################################################################################################
+
+\subsubsection{Práctica 2 --- Mediciones directas e incertezas}
+
+Las tres resistencias se midieron individualmente con el multímetro en modo $\Omega$, seleccionando en cada caso el rango más ajustado que contuviera el valor esperado.
+Todas las mediciones son \textbf{directas}.
+La incerteza se calculó según la Ecuación~\ref{eq:incerteza-multimetro} con los parámetros del rango utilizado; el desarrollo detallado se encuentra en el Apéndice~\ref{subsubsec:calculo-incertezas-resistencias}.
 
 \begin{table}[H]
     \centering
-    \caption{Mediciones Calibre – Mínima división: 0{,}01 mm}
-    \label{tab:mediciones-calibre}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Medición} & \textbf{$h$ (mm)} & \textbf{$d$ (mm)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/hoja-mediciones-calibre.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii}
-    \end{tabular}
-\end{table}
-
-Cálculo de volumen del cilindro:
-
-\begin{equation}
-    V_0 = \frac{\pi}{4} \cdot d^2 \cdot h = \frac{3{,}142}{4} \cdot 24{,}95^2 \cdot 36{,}69 = 17940{,}51 mm^3
-    \label{eq:volumen-cilindro-resolucion-calibre}
-\end{equation}
-
-Cálculo de error relativo del volumen del cilindro:
-
-\begin{equation}
-    \varepsilon_V = 2\,\varepsilon_d + \varepsilon_h = 2 \cdot 0{,}002 + 0{,}0029 = 0{,}0069
-    \label{eq:incerteza-relativa-volumen-cilindro-resolucion-calibre}
-\end{equation}
-
-Cálculo de error absoluto del volumen del cilindro:
-
-\begin{equation}
-    \Delta V = V_0 \cdot \varepsilon_V = 17940{,}51 \cdot 0{,}0069 = 123{,}78 mm^3
-    \label{eq:incerteza-absoluta-volumen-cilindro-resolucion-calibre}
-\end{equation}
-
-Volumen final del cilindro:
-
-\begin{equation}
-    \boxed{V_{calibre} = 17940{,}51 \pm 123{,}78 mm^3 = 17{,}94 \pm 0{,}12 cm^3}
-    \label{eq:volumen-cilindro-calibre}
-\end{equation}
-
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\subsubsection{Práctica 1 --- Mediciones con Regla Milimetrada}
-
-Para el diámetro, todas las mediciones resultaron idénticas ($d = 25$ mm).
-
-Indicando $\text{$V_F$} < \varepsilon_I$, por lo que $\Delta d = 1$ mm.
-
-\begin{table}[H]
-    \centering
-    \caption{Mediciones Regla – Mínima división: 1 mm}
-    \label{tab:mediciones-regla}
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Medición} & \textbf{$h$ (mm)} & \textbf{$d$ (mm)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/hoja-mediciones-regla.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii}
-    \end{tabular}
-\end{table}
-
-Cálculo de volumen del cilindro:
-
-\begin{equation}
-    V_0 = \frac{\pi}{4} \cdot d^2 \cdot h = \frac{3{,}14}{4} \cdot 25^2 \cdot 36{,}5 = 17907{,}81 mm^3
-    \label{eq:volumen-cilindro-resolucion-regla}
-\end{equation}
-
-Cálculo de error relativo del volumen del cilindro:
-
-\begin{equation}
-    \varepsilon_V = 2\,\varepsilon_d + \varepsilon_h = 2 \cdot 0{,}04 + 0{,}01 = 0{,}09
-    \label{eq:incerteza-relativa-volumen-cilindro-resolucion-regla}
-\end{equation}
-
-Cálculo de error absoluto del volumen del cilindro:
-
-\begin{equation}
-    \Delta V = V_0 \cdot \varepsilon_V = 17907{,}81 \cdot 0{,}09 = 1611{,}70 mm^3
-    \label{eq:incerteza-absoluta-volumen-cilindro-resolucion-regla}
-\end{equation}
-
-Volumen final del cilindro:
-
-\begin{equation}
-    \boxed{V_{regla} = 17907{,}81 \pm 1611{,}70 mm^3 = 17{,}90 \pm 1{,}61 cm^3}
-    \label{eq:volumen-cilindro-regla}
-\end{equation}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\subsubsection{Práctica 1 --- Medición con Probeta Graduada}
-
-Nuevamente $\text{$V_F$} < \varepsilon_I$, por lo que: $\Delta X_1 = \Delta X_2 = 1$ mL
-
-\begin{table}[H]
-    \centering
-    \caption{Mediciones Probeta Graduada – Mínima división: 1 mL}
-    \label{tab:mediciones-probeta-graduada}
+    \caption{Especificaciones del multímetro UT58D (modo $\Omega$)}
+    \label{tab:especificaciones-multimetro}
     \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{Medición} & \textbf{$X_1$ (mL)} & \textbf{$X_2$ (mL)} & \textbf{$V = X_2 - X_1$ (mL)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/hoja-mediciones-probeta.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
+        \textbf{Rango} & \textbf{Resolución} & \textbf{Precisión} & \textbf{Corriente de prueba} \\ \hline
+        200 $\Omega$   & 0{,}1 $\Omega$ & $\pm$0{,}7\% rdg $\pm$3 dgt & $<$ 0{,}7 mA \\ \hline
+        2000 $\Omega$  & 1 $\Omega$     & $\pm$0{,}7\% rdg $\pm$1 dgt & $<$ 0{,}1 mA \\ \hline
+        20 k$\Omega$   & 10 $\Omega$    & $\pm$0{,}7\% rdg $\pm$1 dgt & $<$ 30 $\mu$A \\ \hline
+        200 k$\Omega$  & 100 $\Omega$   & $\pm$0{,}7\% rdg $\pm$1 dgt & $<$ 4 $\mu$A \\ \hline
+        2000 k$\Omega$ & 1 k$\Omega$    & $\pm$1{,}0\% rdg $\pm$2 dgt & $<$ 0{,}4 $\mu$A \\ \hline
+        20 M$\Omega$   & 10 k$\Omega$   & $\pm$2{,}0\% rdg $\pm$2 dgt & $<$ 40 nA \\ \hline
     \end{tabular}
 \end{table}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\subsubsection{Práctica 1 --- Medición con Balanza Electrónica}
 
 \begin{table}[H]
     \centering
-    \caption{Mediciones Balanza Electrónica – Mínima división: 0,01 g}
-    \label{tab:mediciones-balanza-electronica}
-    \begin{tabular}{|c|c|}
+    \caption{Mediciones directas de resistencias (Práctica 2)}
+    \label{tab:mediciones-resistencias}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        \textbf{Medición} & \textbf{$M$ (g)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/hoja-mediciones-balanza.csv}{}
-        {\csvcoli & \csvcolii}
+        \textbf{R} & \textbf{Franjas} & \textbf{$R_{nom}$} & \textbf{Tolerancia} & \textbf{Rango} & \textbf{$R_{med}$} & \textbf{$\Delta R$} & \textbf{$R \pm \Delta R$} \\ \hline
+        R1 & verde-azul-verde-dorado   & 5{,}6 M$\Omega$ & $\pm$5\% & 20 M$\Omega$   & 5{,}61 M$\Omega$ & 0{,}1 M$\Omega$ & $(5{,}6 \pm 0{,}1)$ M$\Omega$ \\ \hline
+        R2 & verde-azul-amarillo-dorado & 560 k$\Omega$  & $\pm$5\% & 2000 k$\Omega$ & 562 k$\Omega$    & 8 k$\Omega$     & $(562 \pm 8)$ k$\Omega$ \\ \hline
+        R3 & verde-azul-rojo-dorado    & 5{,}6 k$\Omega$ & $\pm$5\% & 20 k$\Omega$   & 5{,}50 k$\Omega$ & 0{,}05 k$\Omega$ & $(5{,}50 \pm 0{,}05)$ k$\Omega$ \\ \hline
     \end{tabular}
 \end{table}
 
-La incertidumbre relativa $\varepsilon_M = \frac{0{,}01}{149{,}66} \approx 0{,}00006$ es despreciable frente a las incertidumbres volumétricas.
+Los tres valores medidos se encuentran dentro del intervalo de tolerancia declarado ($\pm 5\%$):
+
+\begin{itemize}
+    \item R1: $[5{,}32;\, 5{,}88]$ M$\Omega$ $\ni$ 5{,}61 M$\Omega$ \checkmark
+    \item R2: $[532;\, 588]$ k$\Omega$ $\ni$ 562 k$\Omega$ \checkmark
+    \item R3: $[5{,}32;\, 5{,}88]$ k$\Omega$ $\ni$ 5{,}50 k$\Omega$ \checkmark
+\end{itemize}
 
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Práctica 1 --- Cálculo de la densidad en función de los tres instrumentos}
+\subsubsection{Práctica 3 --- Influencia del aparato de medida}
 
-Cálculo de la densidad para el calibre:
-
-\begin{equation}
-    \rho_0 = \frac{M}{V} = \frac{149{,}66}{17{,}94} = 8{,}342 \frac{g}{cm^3}
-    \label{eq:densidad-resolucion-calibre}
-\end{equation}
-
-\begin{equation}
-    \varepsilon_\rho = \varepsilon_V = 0{,}0069
-    \label{eq:incerteza-relativa-densidad-calibre}
-\end{equation}
-
-\begin{equation}
-    \Delta \rho = \rho_0 \cdot \varepsilon_\rho = 8{,}342 \cdot 0{,}0069 = 0{,}057 \frac{g}{cm^3}
-    \label{eq:incerteza-absoluta-densidad-resolucion-calibre}
-\end{equation}
-
-\begin{equation}
-    \boxed{\rho_{calibre} = 8{,}342 \pm 0{,}057 \frac{g}{cm^3}}
-    \label{eq:densidad-resolucion-final-calibre}
-\end{equation}
-
-Cálculo de la densidad para la regla milimetrada:
-
-\begin{equation}
-    \rho_0 = \frac{M}{V} = \frac{149{,}66}{17{,}90} = 8{,}36 \frac{g}{cm^3}
-    \label{eq:densidad-resolucion-regla}
-\end{equation}
-
-\begin{equation}
-    \varepsilon_\rho = \varepsilon_V = 0{,}09
-    \label{eq:incerteza-relativa-densidad-regla}
-\end{equation}
-
-\begin{equation}
-    \Delta \rho = \rho_0 \cdot \varepsilon_\rho = 8{,}36 \cdot 0{,}09 = 0{,}75 \frac{g}{cm^3}
-    \label{eq:incerteza-absoluta-densidad-resolucion-regla}
-\end{equation}
-
-\begin{equation}
-    \boxed{\rho_{regla} = 8{,}36 \pm 0{,}75 \frac{g}{cm^3}}
-    \label{eq:densidad-resolucion-final-regla}
-\end{equation}
-
-Cálculo de la densidad para la probeta graduada:
-
-\begin{equation}
-    \rho_0 = \frac{M}{V} = \frac{149{,}66}{18} = 8{,}31 \frac{g}{cm^3}
-    \label{eq:densidad-resolucion-probeta}
-\end{equation}
-
-\begin{equation}
-    \varepsilon_\rho = \varepsilon_V = 0{,}11
-    \label{eq:incerteza-relativa-densidad-probeta}
-\end{equation}
-
-\begin{equation}
-    \Delta \rho = \rho_0 \cdot \varepsilon_\rho = 8{,}31 \cdot 0{,}11 = 0{,}91 \frac{g}{cm^3}
-    \label{eq:incerteza-absoluta-densidad-resolucion-probeta}
-\end{equation}
-
-\begin{equation}
-    \boxed{\rho_{probeta} = 8{,}31 \pm 0{,}91 \frac{g}{cm^3}}
-    \label{eq:densidad-resolucion-final-probeta}
-\end{equation}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-El siguiente gráfico muestra los intervalos de densidad obtenidos por cada método, junto con los valores de referencia propuestos.
-La línea roja vertical representa la maxima intersección entre los intervalos.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{secciones/resultados/graficos/grafico-intervalos}
-    \caption{Gráfico de intervalos de densidad para cada método y valores de referencia.}
-    \label{fig:grafico-intervalos}
-\end{figure}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\subsubsection{Práctica 2 --- Mediciones del péndulo ideal}
-
-Para medir $L$ se utilizó la regla milimetrada ($\Delta L = 1 mm$).
-
-Se soltó la masa desde punto que formaba un ángulo $\theta$ con el punto de reposo.
-
-Se tomó el tiempo de 20 oscilaciones.
-
-\begin{table}[H]
-    \centering
-    \caption{Tiempos de 20 oscilaciones $t$ ($s$) en función da la longitud del hilo $L$ y la amplitud del ángulo $\theta$}
-    \label{tab:tiempos}
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \textbf{$L_0$ (mm)} & $\theta = 5^{\circ}$ & $\theta = 9^{\circ}$ & $\theta = 15^{\circ}$ & $\theta = 20^{\circ}$ \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/tiempos-oscilaciones.csv}{}
-        {\textbf{\csvcoli} & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv}
-    \end{tabular}
-\end{table}
-
-Se calculó el período $T = \frac{t}{n}$ para cada combinación $(L, \theta)$:
-
-\begin{table}[H]
-    \centering
-    \caption{Períodos $T$ (s) calculados para cada longitud y amplitud}
-    \label{tab:periodos}
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        $L_0$ (mm) & $T$ ($\theta=5^{\circ}$) & $T$ ($\theta=9^{\circ}$) & $T$ ($\theta=15^{\circ}$) & $T$ ($\theta=20^{\circ}$) \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/periodos.csv}{}
-        {\csvcoli & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv}
-    \end{tabular}
-\end{table}
-
-% ####################################################################################################################
-% ####################################################################################################################
-
-\subsubsection{Práctica 2 --- Cálculo de $g$ por regresión lineal}
-
-Se optó por realizar el cálculo de $g$ mediante regresión lineal de $T^2$ en función de $L$, utilizando las mediciones correspondientes a $\theta$ = 5$^{\circ}$, ya que es el ángulo más pequeño y, por lo tanto, el que mejor se ajusta al modelo de péndulo ideal.
-
-\begin{table}[H]
-    \centering
-    \caption{Datos para el cálculo de la regresión lineal para $\theta$ = 5$^{\circ}$}
-    \label{tab:regresion-datos}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{$L$ (m)} & \textbf{$T^2$ (s$^2$)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/regresion-datos.csv}{}
-        {\csvcoli & \csvcolii}
-    \end{tabular}
-\end{table}
-
-El ajuste obtenido por cuadrados mínimos fue $a(x) = 4{,}2270 \cdot x -0{,}1353$.
-
-El desarrollo del ajuste por cuadrados mínimos se puede encontrar en el Apéndice~\ref{subsubsec:ajuste-cuadrados-minimos-pendulo}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{secciones/resultados/graficos/grafico-ajuste-lineal}
-    \caption{Gráfico del ajuste lineal.}
-    \label{fig:grafico-ajuste-lineal}
-\end{figure}
-
-Las barras de error representan la incerteza absoluta en cada punto.
-El cálculo de las incertezas relativas usadas se pueden encontrar como resultados intermedios en el Apéndice~\ref{subsubsec:calculo-error-relativo-g-promedio-regresion}.
-
-Igualamos la pendiente del ajuste a $\frac{4\pi^2}{g}$ y despejamos en función de $g$:
-
-\begin{equation}
-    m = \frac{4\pi^2}{g} \Longrightarrow g_0 = \frac{4\pi^2}{m}
-    \label{eq:despeje-g}
-\end{equation}
-
-Finalmente, se utiliza la pendiente obtenida y se toma $\pi$ = 3,142 para calcular $g$:
-
-\begin{equation}
-    g_0 = \frac{4\pi^2}{m} = \frac{4 \cdot 3{,}142^2}{4{,}2270} = 9{,}3420 \frac{m}{s^2}
-    \label{eq:resolucion-g}
-\end{equation}
-
-El desarrollo del criterio de elección de $\pi$ se puede encontrar en el Apéndice~\ref{subsubsec:criterio-eleccion-pi}.
-
-Para calcular $\varepsilon_g$, la guía sugiere la Ecuación~\ref{eq:error-relativo-periodo-pendulo-angulos-pequennos},
-sin embargo, nuestro $g_0$ se calculó a partir de la regresión lineal, es decir, no es un unico punto, por lo que tenemos multiples $L_0$ y $T_0$.
-Planteamos multiples formas de resolver esto.
-
-Por un lado, optamos por calcular $\varepsilon_g$ para cada combinación $(L_0, T_0)$ y luego, tomar un promedio.
-El desarrollo completo de este método se puede encontrar en el Apéndice~\ref{subsubsec:calculo-error-relativo-g-promedio-regresion}.
-
-\begin{equation}
-    \varepsilon_g = 0{,}0129
-    \label{eq:error-relativo-g-promedio}
-\end{equation}
-
-El error es de un $1{,}29\%$ menor al $2\%$, por lo tanto, el resultado obtenido satisfará el criterio de precisión exigido.
-
-Finalmente, el error absoluto es:
-
-\begin{equation}
-    \Delta g = g_0 \cdot \varepsilon_g = 9{,}3420 \cdot 0{,}0129 = 0{,}1205 \frac{m}{s^2}
-    \label{eq:incerteza-absoluta-g-promedio}
-\end{equation}
-
-Y el resultado final para $g$:
-
-\begin{equation}
-    \boxed{g = 9{,}34 \pm 0{,}12 \frac{m}{s^2}}
-    \label{eq:g-final}
-\end{equation}
-
-Otro camino para calcular $\varepsilon_g$ es partir de la Ecuación \ref{eq:despeje-g} y aplicar la propagación de errores mediante derivadas parciales.
-
-\begin{equation}
-    \varepsilon_g = \frac{\Delta g}{g_0} = \frac{\Delta m}{m_0}
-    \label{eq:incerteza-absoluta-g-pendiente}
-\end{equation}
-
-El desarrollo completo se puede encontrar en el Apéndice~\ref{subsubsec:propagacion-errores-g-a-partir-de-la-pendiente}.
-
-Para calcular $\Delta m$ utilizaremos la siguiente fórmula para el error estándar de la pendiente.
-
-\begin{equation}
-    \Delta m = \sqrt{ \frac{r}{(n-2)d} } = \sqrt{ \frac{0{,}0038}{(4-2) \cdot 0{,}1210} } = 0{,}1253
-    \label{eq:incerteza-absoluta-m}
-\end{equation}
-
-Siendo $r$ la suma de los residuos al cuadrado, $d$ la dispersion y $n$ el número de puntos.
-
-El desarrollo completo del cálculo de $r$ y $d$ se pueden encontrar en Apéndice~\ref{subsubsec:ajuste-cuadrados-minimos-pendulo}.
-
-\begin{equation}
-    \varepsilon_g = \frac{\Delta m}{m_0} = \frac{0{,}1253}{4{,}2270} = 0{,}0296
-    \label{eq:error-relativo-g-pendiente}
-\end{equation}
-
-El error es de un 2,96 \% mayor al 2 \%, por lo tanto, el resultado obtenido no satisfará el criterio de precisión exigido.
-
-Finalmente, el error absoluto es:
-
-\begin{equation}
-    \Delta g = g_0 \cdot \varepsilon_g = 9{,}3420 \cdot 0{,}0296 = 0{,}2765 \frac{m}{s^2}
-    \label{eq:incerteza-absoluta-g-pendiente-resultado}
-\end{equation}
-
-Y el resultado final para $g$:
-
-\begin{equation}
-    \boxed{g = 9{,}34 \pm 0{,}28 \frac{m}{s^2}}
-    \label{eq:g-final-pendiente}
-\end{equation}
-
-El primer método para el cálculo de $\Delta g$ representa la propagación de los errores de las mediciones, el segundo camino, representa el error de ajuste con respecto al modelo teórico ideal.
-Dado que $g_0$ proviene del resultado de la aproximación lineal de los puntos, consideramos que el primer método es erróneo y que es más apropiado el segundo.
-
-Sin embargo, este no satisface los criterios de precisión necesarios y además ambos son resultados considerablemente malos, ya que el valor de gravedad de referencia para la provincia de Buenos Aires es $9{,}79 \frac{m}{s^2}$.
-Atribuimos esto a que una aproximación tiene pocos puntos.
-
-Decidimos realizar otra aproximación lineal usando más datos independientemente del ángulo inicial, esto no es del todo incorrecto, ya que la fórmula ideal no depende del ángulo inicial.
-Sin embargo, los puntos correspondientes a ángulos más grandes introducirán errores mayores, ya que el sistema se comportará de forma más impredecible para nuestro modelo ideal.
-Por esta razón decidimos excluir $\theta=20^{\circ}$, y estimamos que para el resto de ángulos el error introducido por este factor será menor al error actual derivado de la falta de datos.
-
-\begin{table}[H]
-    \centering
-    \caption{Datos para el cálculo de la regresión lineal para $\theta$ = 5$^{\circ}$, 9$^{\circ}$ y 15$^{\circ}$}
-    \label{tab:regresion-datos-2}
-    \begin{tabular}{|c|c|}
-        \hline
-        \textbf{$L$ (m)} & \textbf{$T^2$ (s$^2$)} \\ \hline
-        \csvreader[
-            separator=semicolon,
-            head=true,
-            late after line=\\ \hline
-        ]{secciones/resultados/regresion-datos-2.csv}{}
-        {\csvcoli & \csvcolii}
-    \end{tabular}
-\end{table}
-
-Para la aproximación lineal de 12 puntos, utilizamos directamente una herramienta de cálculo.
-
-\begin{table}[H]
-    \centering
-    \caption{Resultados de la regresión lineal para $\theta$ = 5$^{\circ}$, 9$^{\circ}$ y 15$^{\circ}$}
-    \label{tab:regresion-2-resultados}
-    \begin{tabular}{|c|c|}
-        \hline
-        \csvreader[
-            separator=semicolon,
-            no head,
-            late after line=\\ \hline
-        ]{secciones/resultados/regresion-2-resultados.csv}{1=\campoA, 2=\campoB}
-        {\campoA & \campoB}
-    \end{tabular}
-\end{table}
-
-Finalmente, el resultado obtenido.
-
-\begin{equation}
-    \boxed{g = 9{,}58 \pm 0{,}26 \frac{m}{s^2}}
-    \label{eq:g-final-2}
-\end{equation}
+\todo{P3: tabla de $V_{R_1}$, $V_{R_2}$, $V_{fuente}$ para cada par ($5{,}6\ \text{k}\Omega$; $560\ \text{k}\Omega$; $5{,}6\ \text{M}\Omega$); verificación de $\sum V = 0$; comparación ideal vs.\ real.}
