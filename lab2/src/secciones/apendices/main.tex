@@ -90,12 +90,12 @@ Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{1
 \paragraph{Práctica 1 --- Ley de Ohm}
 \begin{itemize}
     \item ¿Qué significado tienen los valores de la pendiente $m$ y la ordenada al origen $b$?
+    
+    \respuesta{La pendiente $m$ equivale física y unívocamente a la resistencia eléctrica del conductor metálico ($R = m$), mientras que la ordenada al origen $b$ representa el potencial eléctrico residual en vacío cuando la corriente eléctrica es nula ($I = 0$). El desglose físico de estos parámetros y las causas de la desviación experimental de la ordenada respecto a cero ($b \neq 0$) se detallan en la sección \ref{subsubsec:significado-parametros-ajuste-lineal}.}
 
-    \respuesta{Completar.}
-
-    \item ¿Qué tal si para cada par $(V_n, I_n)$ calculamos $R_n = V_n/I_n$ y luego promediamos los $R_n$? ¿Estamos haciendo lo mismo que la regresión? ¿Qué daría en nuestro caso?
-
-    \respuesta{Completar.}
+\item ¿Qué tal si para cada par $(V_n, I_n)$ calculamos $R_n = V_n/I_n$ y luego promediamos los $R_n$? ¿Estamos haciendo lo mismo que la regresión? ¿Qué daría en nuestro caso?
+    
+    \respuesta{No es metodológicamente equivalente. El cálculo individual punto a punto amplifica drásticamente las incertidumbres instrumentales absolutas, afectando de manera crítica el régimen de bajas corrientes debido a la resolución nominal del amperímetro, lo cual deforma el promedio final. Por el contrario, la regresión lineal evalúa de manera robusta la totalidad de los datos mitigando estadísticamente las fluctuaciones aleatorias individuales. La justificación y el análisis físico detallado de esta diferencia fundamental se presentan en la sección \ref{subsubsec:comparacion-regresion-lineal-vs-promedio-punto-a-punto}.}
 \end{itemize}
 
 \paragraph{Práctica 3 --- Influencia del aparato de medida}
@@ -108,4 +108,3 @@ Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{1
 
     \respuesta{Completar.}
 \end{itemize}
-
