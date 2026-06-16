@@ -1,9 +1,28 @@
 \subsection{Apéndices}
 \label{subsec:apendices}
-
-% ####################################################################################################################
 % ####################################################################################################################
 
+\subsubsection{Significado de los parámetros del ajuste lineal ($m$ y $b$)}
+\label{subsubsec:significado-parametros-ajuste-lineal}
+Al confrontar el modelo teórico de la Ley de Ohm ($V = I \cdot R$) con la ecuación geométrica de la recta ajustada ($V = m \cdot I + b$), se realiza una identificación unívoca de sus componentes. La pendiente $m$ se corresponde directamente con el valor de la resistencia equivalente del conductor bajo ensayo ($R = m$). Por su parte, la ordenada al origen $b$ representa el valor extrapolado de la diferencia de potencial cuando la corriente del sistema es nula. 
+
+Físicamente, aunque en un escenario ideal se espera que $b = 0$, en el laboratorio real suelen presentarse ligeras desviaciones ($b \neq 0$). Estas discrepancias sistemáticas no reflejan una falla del modelo óhmico, sino que se atribuyen de forma directa a factores instrumentales y de montaje. Entre ellos destacan las tensiones de offset inherentes a la electrónica de la fuente de alimentación (potencial residual no nulo en vacío) y la existencia de resistencias de contacto en las superficies de fricción donde las pinzas cocodrilo muerden los bornes de la resistencia cerámica.
+
+
+En \textbf{conclusión}, la pendiente $m$ equivale a la resistencia del conductor ($R$) y la ordenada $b$ representa el potencial residual a corriente cero, cuyo desvío respecto a un valor nulo se debe a imperfecciones de los instrumentos y a resistencias de contacto en los bornes.
+
+\subsubsection{Análisis comparativo: Regresión lineal global frente a promedio punto a punto}\label{subsubsec:comparacion-regresion-lineal-vs-promedio-punto-a-punto}
+La propuesta de determinar la resistencia mediante el cálculo individual de los cocientes $R_n = V_n / I_n$ para cada par de datos medidos y luego calcular su promedio aritmético simple no es metodológicamente equivalente al ajuste por cuadrados mínimos. El cálculo individual propaga y amplifica de manera directa las incertidumbres absolutas asociadas a las lecturas de los instrumentos en cada punto de ensayo. 
+
+Este fenómeno es severamente crítico en el régimen de bajas corrientes (las primeras mediciones del ensayo), donde los valores de intensidad se aproximan a la resolución nominal del amperímetro. En esta zona, pequeñas fluctuaciones aleatorias o el error de dígito del display generan variaciones desproporcionadas en el cociente $V_n / I_n$, dando lugar a valores artificialmente elevados o dispersos que sesgan y distorsionan fuertemente el promedio final. 
+
+En contraposición, el método de cuadrados mínimos no promedia cocientes aislados, sino que evalúa la tendencia histórica y global de todo el conjunto de datos de forma simultánea. Al minimizar la suma de los residuos cuadráticos, la regresión pondera el comportamiento general del circuito, atenuando estadísticamente el impacto del ruido y de las incertidumbres de lectura en los regímenes más desfavorables del instrumento.
+
+
+En \textbf{conclusión}, el promedio punto a punto deforma el resultado porque amplifica drásticamente los errores instrumentales en las lecturas de baja corriente, mientras que la regresión lineal por cuadrados mínimos provee una estimación estadísticamente robusta al mitigar las fluctuaciones individuales mediante la evaluación del conjunto total de datos.
+% ####################################################################################################################
+% ####################################################################################################################
+\clearpage
 \subsubsection{Ajuste por cuadrados mínimos para la regresión lineal}
 \label{subsubsec:ajuste-cuadrados-minimos}
 
@@ -90,3 +109,4 @@ Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{1
 
     \respuesta{Completar.}
 \end{itemize}
+
