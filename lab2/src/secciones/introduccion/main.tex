@@ -24,7 +24,9 @@ V = m \cdot I + b
 \end{equation}
 De la comparación entre ambos modelos se desprende que la pendiente del ajuste representa la resistencia eléctrica del material ($R = m$), mientras que la ordenada al origen $b$ traduce el potencial en ausencia de corriente. 
 
-Las desviaciones experimentales respecto al origen ideal ($b \neq 0$) se desglosan en la sección \ref{subsubsec:significado-parametros-ajuste-lineal}. Asimismo, la justificación detallada que explica por qué la regresión lineal global es superior al cálculo del promedio de las resistencias punto a punto ($R_n = V_n / I_n$) se evalúa en la sección \ref{subsubsec:comparacion-regresion-lineal-vs-promedio-punto-a-punto}. Como conclusión de dichos análisis, se establece que el promedio directo de los cocientes individuales deforma el resultado final debido a la amplificación de incertidumbres instrumentales en el régimen de bajas corrientes, mientras que el ajuste por cuadrados mínimos mitiga estadísticamente este impacto al evaluar la totalidad del conjunto de datos de manera robusta.
+Las desviaciones experimentales respecto al origen ideal ($b \neq 0$) se desglosan en la sección \ref{subsubsec:significado-parametros-ajuste-lineal}. Asimismo, la justificación detallada que explica por qué la regresión lineal global es superior al cálculo del promedio de las resistencias punto a punto ($R_n = V_n / I_n$) se evalúa en la sección \ref{subsubsec:comparacion-regresion-lineal-vs-promedio-punto-a-punto}.
+
+Como conclusión de dichos análisis, se establece que el promedio directo de los cocientes individuales deforma el resultado final debido a la amplificación de incertidumbres instrumentales en el régimen de bajas corrientes, mientras que el ajuste por cuadrados mínimos mitiga estadísticamente este impacto al evaluar la totalidad del conjunto de datos de manera robusta.
 
 % ####################################################################################################################
 
@@ -32,25 +34,33 @@ Las desviaciones experimentales respecto al origen ideal ($b \neq 0$) se desglos
 
 \subsubsection{Multímetro Digital como Ohmímetro}
 
-El multímetro digital (tester) permite medir resistencias operando como \textbf{ohmímetro}: una fuente de corriente interna hace circular una corriente conocida $I$ a través de la resistencia desconocida $R$, y un voltímetro interno mide la caída de tensión $V$ resultante. Dado que $V = IR$, el valor de $R$ se obtiene como $R = V/I$.
+El multímetro digital, permite medir resistencias operando bajo la función de \textbf{ohmímetro} al interconectar sus terminales al componente bajo ensayo. El principio de funcionamiento del instrumento se basa en la aplicación interna de la Ley de Ohm: el dispositivo hace circular una corriente continua de intensidad conocida $I$ a través de la resistencia desconocida $R$, registra de manera simultánea la caída de potencial $V$ generada entre sus extremos y procesa digitalmente el cociente $R = \frac{V}{I}$ para exhibir el valor óhmico en la pantalla. 
 
-El voltímetro interno tiene una lectura a fondo de escala de \textbf{200 mV}. La corriente de prueba varía según el rango seleccionado:
+Debido a que el voltímetro incorporado en el multímetro opera con una lectura a fondo de escala fija de \textbf{200 mV}, la magnitud de la corriente de prueba inyectada se encuentra asociada de forma directa al rango de operación que seleccionemos. De este modo, para la escala de $200\ \Omega$ se inyecta una corriente menor a $0{,}7\text{ mA}$ según las especificaciones técnicas del manual ($I \approx 1\text{ mA}$ en condiciones teóricas ideales, donde $1\text{ mA} \times 200\ \Omega = 200\text{ mV}$), mientras que al pasar al rango de $2\text{ k}\Omega$ la corriente se reduce a $0{,}1\text{ mA}$ ($0{,}1\text{ mA} \times 2000\ \Omega = 200\text{ mV}$). En las escalas más altas del orden de los megaohmios, la corriente de prueba disminuye drásticamente a valores inferiores a los $40\text{ nA}$.
 
-\begin{itemize}
-    \item Rango 200 $\Omega$ $\rightarrow$ $I = 1$ mA \quad (1 mA $\times$ 200 $\Omega$ = 200 mV)
-    \item Rango 2 k$\Omega$ $\rightarrow$ $I = 0{,}1$ mA
-    \item Rangos mayores $\rightarrow$ corrientes menores
-\end{itemize}
+\vspace{0.3cm}
+\noindent
+\begin{minipage}[t]{0.52\textwidth}
+    \vspace{0pt}
+    Bajo esta configuración manual, la precisión de la lectura depende por completo de la correcta selección de la escala por parte del operador. El protocolo experimental exige iniciar la medición en un rango elevado para evitar la saturación del display (indicada con un '1' a la izquierda) y descender paulatinamente hasta encontrar el menor rango disponible que contenga el valor del componente bajo estudio. Dicha manipulación metodológica optimiza la resolución nominal del display (permitiendo visualizar más cifras decimales significativas) y minimiza la incertidumbre instrumental de la medida.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\textwidth}
+    \vspace{0pt}
+    \centering
+    \includegraphics[width=0.70\textwidth]{secciones/introduccion/UT58D-digital-multimeter.png}
+    \captionof{figure}{Multímetro digital UNI-T UT58D.}
+    \label{fig:multimetro-ut58d}
+\end{minipage}
+\vspace{0.4cm}
 
-La incerteza de la medición se estima con la fórmula del fabricante:
-
+Cuantitativamente, la incertidumbre instrumental absoluta ($\Delta R$) asociada a cada lectura directa se calcula a partir de las especificaciones de fábrica mediante la ecuación:
 \begin{equation}
-    \Delta R = \frac{\%rdg}{100} \times R_{medida} + dgt \times resolución
-    \label{eq:incerteza-multimetro}
+\Delta R = \frac{\%rdg}{100} \times R_{\text{medida}} + dgt \times \text{resolución}
+\label{eq:incerteza-multimetro}
 \end{equation}
+donde $\%rdg$ (\textit{reading}) representa el error porcentual simétrico asignado a la lectura, y $dgt$ (\textit{digit}) cuantifica la cantidad de unidades de incertidumbre que afectan exclusivamente al último dígito significativo del display, cuyo valor posicional mínimo queda determinado por la resolución de la escala activa.
 
-donde \textbf{\%rdg} es el error porcentual sobre la lectura (\textit{reading}) y \textbf{dgt} es la cantidad de dígitos de incerteza en la última cifra significativa.
-
+% 
 % ####################################################################################################################
 % ####################################################################################################################
 
