@@ -78,4 +78,34 @@ Las resistencias tienen 4 franjas de color: las dos primeras son dígitos, la te
 
 \subsubsection{Influencia del Aparato de Medida}
 
-\todo{P3: 2ª Ley de Kirchhoff ($\sum V = 0$), divisor resistivo ideal $V_{le\acute{i}da} = \frac{R_2}{R_1+R_2}V_0$. Con voltímetro real ($R_{int} = 10\ \text{M}\Omega$): $R'_2 = R_2 \| R_{int}$; el efecto es apreciable cuando $R_2 \sim R_{int}$. ($R_1$, $R_2$ son las del circuito, no las de la Práctica 2.)}
+Al considerar un circuito eléctrico compuesto por dos resistencias conectadas en serie, resulta indispensable analizar cómo la presencia de un instrumento de medición real altera la distribución original de potenciales en dicha malla. 
+
+El modelo teórico para dos resistencias en serie ($R_1$ y $R_2$) alimentadas por una fuente de tensión continua ($V_0$) establece que la caída de potencial ideal sobre el componente bajo ensayo ($R_2$) responde a la expresión del \textbf{divisor resistivo}:
+\begin{equation}
+    V_{\text{ideal}} = \frac{R_2}{R_1 + R_2} \times V_0
+\label{eq:divisor-ideal}
+\end{equation}
+Donde cada término se define físicamente como:
+\begin{itemize}
+    \item $V_{\text{ideal}}$: Diferencia de potencial eléctrico ideal entre los extremos de la resistencia $R_2$, expresada en voltios ($\text{V}$).
+    \item $V_0$: Tensión continua total suministrada por la fuente de alimentación al circuito. De acuerdo con la Segunda Ley de Kirchhoff (ley de mallas), este potencial se distribuye exclusivamente entre ambos componentes reactivos de la malla ($V_0 = V_{R1} + V_{R2}$).
+    \item $R_2$: Resistencia óhmica del componente bajo ensayo sobre el cual se evalúa la caída de tensión, expresada en ohmios ($\Omega$).
+    \item $R_1$: Resistencia de carga o acoplamiento conectada en serie respecto a $R_2$. Su función física consiste en limitar la intensidad de la corriente total que circula por la malla; consecuentemente, a mayor magnitud de $R_1$, menor será la fracción de potencial disponible para $R_2$.
+\end{itemize}
+
+Esta formulación matemática asume un escenario ideal en el cual el voltímetro posee una resistencia interna infinita ($R_{\text{int}} \to \infty$). En dicha situación, el instrumento actúa como un circuito abierto perfecto que no desvía corriente a través de sus bornes, garantizando que el proceso de medición no perturbe el estado del sistema y que el valor leído en el display coincida exactamente con el predicho por el modelo teórico.
+
+Sin embargo, los voltímetros digitales reales empleados en el laboratorio poseen una resistencia interna finita, denotada como $R_{\text{int}}$, cuyo valor nominal es característicamente del orden de los $10\text{ M}\Omega$. Al conectar el voltímetro sobre la resistencia $R_2$, le estamos abriendo a la corriente eléctrica un nuevo camino alternativo por el cual circular. Físicamente, cuando la electricidad tiene más vías de escape en una misma zona, la resistencia total de ese tramo disminuye. De este modo, el circuito ya no ve a la resistencia $R_2$ sola, sino a una resistencia combinada y más pequeña ($R'_2$), calculada a través de la fórmula matemática para dos caminos en paralelo:
+\begin{equation}
+    R'_2 = \frac{R_2 \cdot R_{\text{int}}}{R_2 + R_{\text{int}}}
+\label{eq:paralelo-real}
+\end{equation}
+Consecuentemente, la diferencia de potencial real que el multímetro registra en su pantalla ($V_{\text{real}}$) queda gobernada por la ecuación del divisor resistivo modificado:
+\begin{equation}
+    V_{\text{real}} = \frac{R'_2}{R_1 + R'_2} \times V_0
+\label{eq:divisor-real}
+\end{equation}
+
+Al comparar ambas ecuaciones, se demuestra que la perturbación introducida por el instrumento depende estrictamente de la relación de magnitudes entre las resistencias del circuito y la impedancia interna del voltímetro. El análisis algebraico detallado y el comportamiento de los desvíos se desarrollan en el Apéndice \ref{subsec:apendice-divisor-real}, del cual se desprende una conclusión fundamental: para circuitos de baja resistencia ($R_2 \ll R_{\text{int}}$), el desvío de corriente es insignificante, logrando que el voltaje medido coincida con el ideal ($V_{\text{real}} \approx V_{\text{ideal}}$) y la Segunda Ley de Kirchhoff se verifique con alta precisión. 
+
+Por el contrario, en mallas de alta resistencia ($R_2 \sim R_{\text{int}}$), el instrumento altera severamente el sistema al ofrecer una vía de escape para la corriente, reduciendo el voltaje del nodo y provocando una \textbf{aparente} violación de las leyes de Kirchhoff ($V_{R1} + V_{R2} \neq V_0$) que se explica enteramente por el efecto de carga del voltímetro real.

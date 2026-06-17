@@ -22,7 +22,34 @@ En \textbf{conclusión}, el promedio punto a punto deforma el resultado porque a
 
 % ####################################################################################################################
 % ####################################################################################################################
+\clearpage
+\subsection{Modelo del divisor resistivo con voltímetro real}
+\label{subsec:apendice-divisor-real}
 
+El análisis de la perturbación que introduce un voltímetro real con resistencia interna finita ($R_{\text{int}} \approx 10\text{ M}\Omega$) requiere evaluar matemáticamente el desvío de corriente en los nodos de la malla. 
+
+Cuando el instrumento se conecta en paralelo con la resistencia $R_2$ para registrar su caída de potencial, la corriente total proveniente de la fuente se divide entre ambas ramas. Este acoplamiento modifica la resistencia efectiva de ese tramo del circuito, reduciéndola a un valor equivalente ($R'_2$) gobernado por la ecuación de paralelo:
+\begin{equation}
+    R'_2 = \frac{R_2 \cdot R_{\text{int}}}{R_2 + R_{\text{int}}}
+\end{equation}
+
+Al sustituir esta nueva resistencia equivalente en la expresión del divisor de tensión, el voltaje real ($V_{\text{real}}$) exhibido en el display del multímetro responde a:
+\begin{equation}
+    V_{\text{real}} = \frac{R'_2}{R_1 + R'_2} \times V_0
+\end{equation}
+
+A partir de este modelo matemático, se desglosan los dos escenarios experimentales analizados en el laboratorio:
+
+\begin{enumerate}
+    \item \textbf{Régimen de baja impedancia ($R_2 \ll R_{\text{int}}$):} Al ensayar componentes con valores óhmicos de pocos ohmios o kiloohmios, la corriente que se desvía por el aparato es tan pequeña que resulta despreciable frente a la de la malla . Consecuentemente, la resistencia equivalente no sufre alteraciones apreciables ($R'_2 \approx R_2$), el voltaje medido iguala al valor teórico ($V_{\text{real}} \approx V_{\text{ideal}}$) y la Segunda Ley de Kirchhoff se verifica de forma directa en la mesa de trabajo.
+    
+    \item \textbf{Régimen de alta impedancia ($R_2 \sim R_{\text{int}}$):} Al realizar la medición sobre resistencias del orden de los megaohmios, el voltímetro se convierte en una vía de escape muy importante y "roba" una parte significativa de la corriente total. Este drenaje provoca que la resistencia efectiva caiga de forma drástica, haciendo que el voltaje en ese tramo se desplome a lecturas sistemáticamente menores que las ideales. 
+\end{enumerate}
+
+Como consecuencia de este fenómeno físico (denominado efecto de carga), las caídas de tensión individuales medidas de forma sucesiva sobre el circuito de alta impedancia darán una suma menor al voltaje total entregado por la fuente ($V_{R1} + V_{R2} \neq V_0$). Es fundamental destacar que este resultado experimental no constituye una falla real ni una violación a la Segunda Ley de Kirchhoff, sino que es el reflejo matemático de haber conectado un instrumento real que alteró el estado del circuito durante el propio proceso de medición.
+
+% ####################################################################################################################
+% ####################################################################################################################
 \clearpage
 \subsubsection{Cálculo detallado de incertezas de resistencias}
 \label{subsubsec:calculo-incertezas-resistencias}
