@@ -5,7 +5,37 @@ Se adjunta la hoja de datos original con las mediciones realizadas en el laborat
 
 \subsubsection{Práctica 1 --- Ley de Ohm}
 
-\todo{P1: tabla de pares $(I, V)$ registrados, firmada por el docente.}
+\begin{table}[H]
+    \centering
+    \caption{Medición de corriente y voltaje con conectores en los extremos}
+    \label{tab:resistencia_1}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{(disp A)I (A)} & \textbf{(disp B)V (V)} \\ \hline
+        \csvreader[
+            separator=semicolon,
+            head=true,
+            late after line=\\ \hline
+        ]{secciones/hoja-datos/resistencia_1.csv}{}
+        {\csvcoli & \csvcolii}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Medición de corriente y voltaje con conector en el centro}
+    \label{tab:resistencia_2}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{(disp A)I (A)} & \textbf{(disp B)V (V)} \\ \hline
+        \csvreader[
+            separator=semicolon,
+            head=true,
+            late after line=\\ \hline
+        ]{secciones/hoja-datos/resistencia_2.csv}{}
+        {\csvcoli & \csvcolii}
+    \end{tabular}
+\end{table}
 
 \subsubsection{Práctica 2 --- Medición de Resistencias}
 
