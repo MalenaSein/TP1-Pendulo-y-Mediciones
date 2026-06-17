@@ -50,6 +50,44 @@ La práctica ilustró la importancia de seleccionar el rango adecuado del instru
 % ####################################################################################################################
 % ####################################################################################################################
 
-\subsubsection{Práctica 3 --- Influencia del aparato de medida}
-
-\todo{P3 --- Análisis (2.5.1--2.5.4): ¿se cumple Kirchhoff?, ¿para qué valores de $R$ sí y para cuáles no?; efecto de $R_{int}=10\ \text{M}\Omega$ sobre el circuito; modelo $R'_2 = R_2 \| R_{int}$; mejoras.}
+\subsubsection{Práctica 3 --- Comparación entre Modelo y Sistema}
+ 
+En el \textbf{Circuito A} ($R_a = 5{,}6\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$),
+la suma $V_{Ra} + V_{Rb} \approx 5{,}125\,\text{V}$ verifica satisfactoriamente
+la Segunda Ley de Kirchhoff, y la relación de tensiones medidas
+(${\approx}1024$) es consistente con la relación de resistencias ($1000$).
+El efecto de carga del tester es moderado porque $R_a \ll R_b$.
+ 
+En el \textbf{Circuito B} ($R_a = 560\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$),
+las tensiones medidas son del orden de los mV y su suma no permite
+verificar la ley de Kirchhoff con precisión, ya que $R_b \sim R_{int}$
+y el instrumento altera el circuito de forma apreciable.
+ 
+\subsubsection{Práctica 3 --- Consecuencia de las Discrepancias}
+ 
+Cuando $R_{int}$ es comparable a $R_b$, la resistencia efectiva
+$R'_b = R_b \| R_{int}$ es notablemente menor que $R_b$, redistribuyendo
+la tensión del circuito. La suma de los voltajes leídos no coincide con $V_0$
+no por una violación de Kirchhoff, sino porque el instrumento modifica
+el circuito que pretende medir.
+ 
+\subsubsection{Práctica 3 --- Hipótesis de las Discrepancias}
+ 
+La fuente principal de discrepancia es la \textbf{resistencia de entrada
+finita del voltímetro} ($R_{int} \approx 10\,\text{M}\Omega$). Su efecto
+es despreciable cuando $R_b \ll R_{int}$ (Circuito A, $R_b/R_{int} \approx 0{,}56$,
+compensado porque $R_a \ll R_b$) y significativo cuando $R_a$ también
+se acerca a $R_{int}$ (Circuito B).
+ 
+\subsubsection{Práctica 3 --- Mejoras al Método}
+ 
+\begin{itemize}
+    \item Utilizar un voltímetro con mayor resistencia de entrada
+    ($R_{int} \gg R_b$) para reducir la perturbación sobre el circuito.
+    \item Medir la tensión de la fuente $V_0$ con el mismo tester para
+    verificar directamente $V_{Ra} + V_{Rb} = V_0$.
+    \item Para circuitos con resistencias del orden de M$\Omega$, usar
+    instrumentos especializados (electrómetros o testers con
+    $R_{int} > 100\,\text{M}\Omega$).
+\end{itemize}
+ 

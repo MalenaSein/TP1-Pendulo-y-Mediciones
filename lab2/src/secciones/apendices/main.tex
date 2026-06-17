@@ -142,11 +142,74 @@ Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{1
 % ####################################################################################################################
 
 \clearpage
-\subsubsection{Modelo del divisor resistivo con voltímetro real}
+\subsubsection{Modelo del divisor resistivo con voltímetro real --- Cálculo numérico}
 \label{subsubsec:divisor-resistivo-voltimetro-real}
-
-\todo{Deducción de $V_{le\acute{i}da}$ con $R'_2 = R_2 \| R_{int}$; cálculo numérico para $R_1=R_2 \in \{5{,}6\ \text{k}\Omega;\ 560\ \text{k}\Omega;\ 5{,}6\ \text{M}\Omega\}$ comparado con el valor ideal.}
-
+ 
+Se calcula la tensión ideal y real sobre $R_b$ para los dos circuitos medidos,
+usando $R_{int} = 10\,\text{M}\Omega$ y un $V_0$ de referencia normalizado
+(se expresa el cociente $V_{Rb}/V_0$ para independizarse del valor exacto de la fuente).
+ 
+La resistencia equivalente en paralelo es (Ec.~5):
+\[
+    R'_b = \frac{R_b \cdot R_{int}}{R_b + R_{int}}
+\]
+ 
+\paragraph{Circuito A: $R_a = 5{,}6\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$}
+ 
+\[
+    R'_b = \frac{5{,}6 \times 10}{5{,}6 + 10}\,\text{M}\Omega
+         = \frac{56}{15{,}6}\,\text{M}\Omega \approx 3{,}590\,\text{M}\Omega
+\]
+ 
+\[
+    \frac{V_{Rb}^{ideal}}{V_0} = \frac{R_b}{R_a + R_b}
+    = \frac{5{,}6\,\text{M}\Omega}{5{,}6\,\text{k}\Omega + 5{,}6\,\text{M}\Omega}
+    \approx \frac{5600}{5605{,}6} \approx 99{,}90\,\%
+\]
+ 
+\[
+    \frac{V_{Rb}^{real}}{V_0} = \frac{R'_b}{R_a + R'_b}
+    = \frac{3{,}590\,\text{M}\Omega}{5{,}6\,\text{k}\Omega + 3{,}590\,\text{M}\Omega}
+    \approx \frac{3590}{3595{,}6} \approx 99{,}84\,\%
+\]
+ 
+La perturbación es mínima (${\approx}0{,}06\,\%$) porque $R_a \ll R_b$:
+el tester no altera significativamente el circuito.
+ 
+\paragraph{Circuito B: $R_a = 560\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$}
+ 
+\[
+    R'_b = 3{,}590\,\text{M}\Omega \quad \text{(idéntico al caso anterior)}
+\]
+ 
+\[
+    \frac{V_{Rb}^{ideal}}{V_0} = \frac{5{,}6\,\text{M}\Omega}{560\,\text{k}\Omega + 5{,}6\,\text{M}\Omega}
+    = \frac{5600}{6160} \approx 90{,}91\,\%
+\]
+ 
+\[
+    \frac{V_{Rb}^{real}}{V_0} = \frac{3{,}590\,\text{M}\Omega}{560\,\text{k}\Omega + 3{,}590\,\text{M}\Omega}
+    = \frac{3590}{4150} \approx 86{,}51\,\%
+\]
+ 
+La perturbación es de ${\approx}4{,}4\,\%$: el tester reduce apreciablemente
+la tensión medida sobre $R_b$, y la suma $V_{Ra} + V_{Rb}$ ya no reproduce
+con fidelidad la tensión de la fuente.
+ 
+\begin{table}[H]
+    \centering
+    \caption{Comparación ideal vs.\ real para los dos circuitos ($V_0$ normalizado)}
+    \label{tab:divisor-comparacion}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Circ.} & $R_a$ & $R_b$
+            & $V_{Rb}^{ideal}/V_0$ & $V_{Rb}^{real}/V_0$ \\ \hline
+        A & 5{,}6 k$\Omega$ & 5{,}6 M$\Omega$ & 99{,}90\,\% & 99{,}84\,\% \\ \hline
+        B & 560 k$\Omega$   & 5{,}6 M$\Omega$ & 90{,}91\,\% & 86{,}51\,\% \\ \hline
+    \end{tabular}
+\end{table}
+ 
+ 
 % ####################################################################################################################
 % ####################################################################################################################
 
@@ -173,7 +236,14 @@ Se aplica la Ecuación~\ref{eq:incerteza-multimetro}: $\Delta R = \frac{\%rdg}{1
 
     \respuesta{Por la Segunda Ley de Kirchhoff, la suma algebraica de las caídas de tensión en una malla cerrada debe ser nula: $V_{\text{fuente}} - V_{R_1} - V_{R_2} = 0$. Esto es estrictamente válido para un voltímetro ideal ($R_{\text{int}} \to \infty$). Con el voltímetro real ($R_{\text{int}} = 10\ \text{M}\Omega$), se espera que la suma sea aproximadamente cero para $R_1 = R_2 = 5{,}6\ \text{k}\Omega$ (ya que $R_2 \ll R_{\text{int}}$, la perturbación es despreciable), pero que se desvíe de cero de forma creciente al pasar a $560\ \text{k}\Omega$ y más aún a $5{,}6\ \text{M}\Omega$, donde $R_2 \sim R_{\text{int}}$ y el efecto de carga es significativo.}
 
-    \todo{Completar con los resultados de la parte 3}
+    En el \textbf{Circuito A} ($R_a = 5{,}6\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$)
+    se obtuvo $V_{Ra} + V_{Rb} = 5{,}0\,\text{mV} + 5{,}12\,\text{V} \approx 5{,}125\,\text{V}$,
+    valor consistente con la tensión de la fuente, verificando la ley satisfactoriamente.
+    En el \textbf{Circuito B} ($R_a = 560\,\text{k}\Omega$, $R_b = 5{,}6\,\text{M}\Omega$)
+    se obtuvo $V_{Ra} + V_{Rb} = 0{,}20\,\text{mV} + 2{,}5\,\text{mV} = 2{,}7\,\text{mV}$.
+    Esta suma no puede compararse directamente con $V_0$ porque la tensión de la fuente
+    era muy baja y el tester perturbó significativamente el circuito al ser $R_b \sim R_{int}$,
+    tal como predice el modelo del Apéndice~\ref{subsubsec:divisor-resistivo-voltimetro-real}.
 
 
     \item ¿Qué sucede con la Segunda Ley de Kirchhoff? ¿A veces anda y a veces no?

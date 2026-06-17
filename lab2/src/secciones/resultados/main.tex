@@ -81,4 +81,31 @@ Los tres valores medidos se encuentran dentro del intervalo de tolerancia declar
 
 \subsubsection{Práctica 3 --- Influencia del aparato de medida}
 
-\todo{P3: tabla de $V_{R_1}$, $V_{R_2}$, $V_{fuente}$ para cada par ($5{,}6\ \text{k}\Omega$; $560\ \text{k}\Omega$; $5{,}6\ \text{M}\Omega$); verificación de $\sum V = 0$; comparación ideal vs.\ real.}
+Se armaron dos circuitos divisores resistivos con dos resistencias en serie, alimentados por la
+fuente de tensión continua. En cada circuito se midió con el tester la tensión en los bornes de
+cada resistencia por separado. Todas las mediciones de tensión son \textbf{directas}.
+ 
+\begin{table}[H]
+    \centering
+    \caption{Tensiones medidas con el tester en los circuitos de la Práctica 3}
+    \label{tab:resultados-p3}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Circ.} & $R_a$ & $R_b$ & \textbf{Rango / $V_{Ra}$} & \textbf{Rango / $V_{Rb}$} & $V_{Ra} + V_{Rb}$ \\ \hline
+        A & 5{,}6 k$\Omega$ & 5{,}6 M$\Omega$
+          & 200\,mV$\;/\;5{,}0$\,mV
+          & 20\,V$\;/\;5{,}12$\,V
+          & $\approx 5{,}125$\,V \\ \hline
+        B & 560 k$\Omega$ & 5{,}6 M$\Omega$
+          & 200\,mV$\;/\;0{,}20$\,mV
+          & 200\,mV$\;/\;2{,}5$\,mV
+          & $\approx 2{,}7$\,mV \\ \hline
+    \end{tabular}
+\end{table}
+ 
+En el \textbf{Circuito A}, la relación entre tensiones medidas es
+$V_{Rb}/V_{Ra} = 5{,}12\,\text{V}\,/\,5{,}0\,\text{mV} \approx 1024$,
+consistente con la relación de resistencias $R_b/R_a = 1000$.
+En el \textbf{Circuito B}, ambas tensiones son del orden de los mV, lo que indica
+una perturbación significativa del tester sobre el circuito
+(ver Apéndice~\ref{subsubsec:divisor-resistivo-voltimetro-real}).
