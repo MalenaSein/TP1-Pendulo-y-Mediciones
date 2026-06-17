@@ -23,6 +23,56 @@ En \textbf{conclusión}, el promedio punto a punto deforma el resultado porque a
 % ####################################################################################################################
 % ####################################################################################################################
 \clearpage
+\subsection{Cálculo de Resistencias por Promedio de las Mediciones Individuales}
+\label{subsec:calculo-de-resistencias-por-promedio-de-las-mediciones-individuales}
+
+\begin{table}[H]
+    \centering
+    \caption{Resistencia en cada punto de la primera medición}
+    \label{tab:resistencia_promedio_1}
+    \resizebox{0.5\textwidth}{!}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{(disp A)I (A)} & \textbf{(disp B)V (V)} & \textbf{Resistencia (V/I)} \\ \hline
+            \csvreader[
+                separator=semicolon,
+                head=true,
+                late after line=\\ \hline
+            ]{secciones/apendices/resistencia_promedio_1.csv}{}
+            {\csvcoli & \csvcolii & \csvcoliii}
+        \end{tabular}
+    }
+\end{table}
+
+\begin{equation}
+    \frac{ 6 \cdot 200 + 300 + 166 + 175 + 180 + 183 + 171 + 185 + 175 + 187 }{15} = 194.8
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{Resistencia en cada punto de la segunda medición}
+    \label{tab:resistencia_promedio_2}
+    \resizebox{0.5\textwidth}{!}{
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{(disp A)I (A)} & \textbf{(disp B)V (V)} & \textbf{Resistencia (V/I)} \\ \hline
+            \csvreader[
+                separator=semicolon,
+                head=true,
+                late after line=\\ \hline
+            ]{secciones/apendices/resistencia_promedio_2.csv}{}
+            {\csvcoli & \csvcolii & \csvcoliii}
+        \end{tabular}
+    }
+\end{table}
+
+\begin{equation}
+    \frac{ 8 \cdot 100 + 2 \cdot 90 + 91 + 2 \cdot 92 + 2 \cdot 93 + 94 }{15} = 102.3
+\end{equation}
+
+% ####################################################################################################################
+% ####################################################################################################################
+\clearpage
 \subsection{Modelo del divisor resistivo con voltímetro real}
 \label{subsec:apendice-divisor-real}
 
